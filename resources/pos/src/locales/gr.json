@@ -803,7 +803,19 @@
     "variation.type.input.name.validate.label": "Bitte geben Sie gültige Variationstypen ein",
     "variation.select.validation.error.message": "Bitte wählen Sie eine Variation aus",
     "variation.type.select.validate.error.message": "Bitte wählen Sie Variationstypen aus",
-    "products.warehouse.title":"Produktlager",
-    "barcode-symbol-uppercase-validation-message":"Bitte geben Sie für den Code 39-Barcode nur Großbuchstaben und Zahlen ein.",
-    "sale.product-qty.limit.validate.message":"Sie können nicht mehr als die begrenzte Menge kaufen"
+    "products.warehouse.title": "Produktlager",
+    "barcode-symbol-uppercase-validation-message": "Bitte geben Sie für den Code 39-Barcode nur Großbuchstaben und Zahlen ein.",
+    "sale.product-qty.limit.validate.message": "Sie können nicht mehr als die begrenzte Menge kaufen",
+    "receipt-settings.title": "Receipt-Einstellungen",
+    "receipt-settings.show-warehouse.label": "Lager anzeigen",
+    "receipt-settings.show-email.label": "E-Mail anzeigen",
+    "receipt-settings.show-address.label": "Adresse anzeigen",
+    "receipt-settings.show-customer.label": "Kunde anzeigen",
+    "receipt-settings.show-phone.label": "Telefon anzeigen",
+    "receipt-settings.show-tax-discount-shipping.label": "Steuer & Rabatt & Versand anzeigen",
+    "receipt-settings.success.edit.message": "Quittungseinstellung erfolgreich aktualisiert",
+    "receipt-settigns.input.note.validate.label": "Bitte Notiz eingeben",
+    "receipt-settings.show-barcode.label": "Hiển thị mã vạch trong biên nhận",
+    "receipt-settings.show-note.label": "Notiz anzeigen",
+    "globally.submit-and-print-button": "Senden und Drucken"
 }

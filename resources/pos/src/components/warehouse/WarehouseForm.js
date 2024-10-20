@@ -153,7 +153,7 @@ const WarehouseForm = (props) => {
                                    pattern='[0-9]*' value={warehouseValue.zip_code}
                                    placeholder={placeholderText('warehouse.input.zip-code.placeholder.label')}
                                    onChange={(e) => onChangeInput(e)}
-                                   onKeyPress={(event) => numValidate(event)}
+                                   onKeyPress={(event) => (event)}
                             />
                             <span
                                 className='text-danger d-block fw-400 fs-small mt-2'>{errors['zip_code'] ? errors['zip_code'] : null}</span>

@@ -59,6 +59,7 @@ class MainProduct extends Model implements HasMedia, JsonResourceful
     {
         $this->load('products');
         $prices = collect($this->products)->pluck('product_price')->toArray();
+        $prices = !empty($prices) ? $prices : [0];
 
         $fields = [
             'name' => $this->name,

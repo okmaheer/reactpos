@@ -25,8 +25,9 @@ class PrintData extends React.PureComponent {
             >
                 <div className="mt-4 mb-4 text-black text-center">
                     {paymentPrint.settings &&
-                    paymentPrint.settings.attributes.show_logo_in_receipt ===
-                        "1" ? (
+                    parseInt(
+                        paymentPrint.settings.attributes.show_logo_in_receipt
+                    ) === 1 ? (
                         <img
                             src={
                                 paymentPrint.frontSetting &&
@@ -70,63 +71,89 @@ class PrintData extends React.PureComponent {
                             )}
                         </span>
                     </div>
-                    <div
-                        style={{
-                            marginBottom: "4px",
-                        }}
-                    >
-                        <span className="fw-bold me-2">
-                            {getFormattedMessage(
-                                "supplier.table.address.column.title"
-                            )}
-                            :
-                        </span>
-                        <span>
-                            {paymentPrint.frontSetting &&
-                                paymentPrint.frontSetting.value.address}
-                        </span>
-                    </div>
-                    <div
-                        style={{
-                            marginBottom: "4px",
-                        }}
-                    >
-                        <span className="fw-bold me-2">
-                            {getFormattedMessage("globally.input.email.label")}:
-                        </span>
-                        <span>
-                            {paymentPrint.frontSetting &&
-                                paymentPrint.frontSetting.value.email}
-                        </span>
-                    </div>
-                    <div
-                        style={{
-                            marginBottom: "4px",
-                        }}
-                    >
-                        <span className="fw-bold me-2">
-                            {getFormattedMessage("pos-sale.detail.Phone.info")}:
-                        </span>
-                        <span>
-                            {paymentPrint.frontSetting &&
-                                paymentPrint.frontSetting.value.phone}
-                        </span>
-                    </div>
-                    <div style={{}}>
-                        <span className="fw-bold me-2">
-                            {getFormattedMessage(
-                                "dashboard.recentSales.customer.label"
-                            )}
-                            :
-                        </span>
-                        <span>
-                            {paymentPrint.customer_name &&
-                            paymentPrint.customer_name[0]
-                                ? paymentPrint.customer_name[0].label
-                                : paymentPrint.customer_name &&
-                                  paymentPrint.customer_name.label}
-                        </span>
-                    </div>
+                    {paymentPrint.settings &&
+                        parseInt(
+                            paymentPrint.settings.attributes.show_address
+                        ) === 1 && (
+                            <div
+                                style={{
+                                    marginBottom: "4px",
+                                }}
+                            >
+                                <span className="fw-bold me-2">
+                                    {getFormattedMessage(
+                                        "supplier.table.address.column.title"
+                                    )}
+                                    :
+                                </span>
+                                <span>
+                                    {paymentPrint.frontSetting &&
+                                        paymentPrint.frontSetting.value.address}
+                                </span>
+                            </div>
+                        )}
+                    {paymentPrint.settings &&
+                        parseInt(
+                            paymentPrint.settings.attributes.show_email
+                        ) === 1 && (
+                            <div
+                                style={{
+                                    marginBottom: "4px",
+                                }}
+                            >
+                                <span className="fw-bold me-2">
+                                    {getFormattedMessage(
+                                        "globally.input.email.label"
+                                    )}
+                                    :
+                                </span>
+                                <span>
+                                    {paymentPrint.frontSetting &&
+                                        paymentPrint.frontSetting.value.email}
+                                </span>
+                            </div>
+                        )}
+                    {paymentPrint.settings &&
+                        parseInt(
+                            paymentPrint.settings.attributes.show_phone
+                        ) === 1 && (
+                            <div
+                                style={{
+                                    marginBottom: "4px",
+                                }}
+                            >
+                                <span className="fw-bold me-2">
+                                    {getFormattedMessage(
+                                        "pos-sale.detail.Phone.info"
+                                    )}
+                                    :
+                                </span>
+                                <span>
+                                    {paymentPrint.frontSetting &&
+                                        paymentPrint.frontSetting.value.phone}
+                                </span>
+                            </div>
+                        )}
+                    {paymentPrint.settings &&
+                        parseInt(
+                            paymentPrint.settings.attributes.show_customer
+                        ) === 1 && (
+                            <div style={{}}>
+                                <span className="fw-bold me-2">
+                                    {getFormattedMessage(
+                                        "dashboard.recentSales.customer.label"
+                                    )}
+                                    :
+                                </span>
+                                <span>
+                                    {paymentPrint.customer_name &&
+                                    paymentPrint.customer_name[0]
+                                        ? paymentPrint.customer_name[0].label
+                                        : paymentPrint.customer_name &&
+                                          paymentPrint.customer_name.label}
+                                </span>
+                            </div>
+                        )}
                 </section>
 
                 <section className="mt-3">
@@ -195,66 +222,98 @@ class PrintData extends React.PureComponent {
                             )}
                         </div>
                     </div>
-                    <div className="d-flex">
-                        <div
-                            style={{
-                                fontWeight: "500",
-                                color: "#000000",
-                            }}
-                        >
-                            {getFormattedMessage("globally.detail.order.tax")}:{" "}
-                            {Number(paymentPrint.tax) > 0
-                                ? paymentPrint
-                                    ? `(${Number(paymentPrint.tax).toFixed(
-                                          2
-                                      )}%)`
-                                    : "(0.00%)"
-                                : null}
-                        </div>
-                        <div className="text-end ms-auto">
-                            {currencySymbolHandling(
-                                allConfigData,
-                                currency,
-                                paymentPrint.taxTotal
-                                    ? paymentPrint.taxTotal
-                                    : "0.00"
-                            )}
-                        </div>
-                    </div>
-                    <div className="d-flex">
-                        <div
-                            style={{
-                                fontWeight: "500",
-                                color: "#000000",
-                            }}
-                        >
-                            {getFormattedMessage("globally.detail.discount")}:
-                        </div>
-                        <div className="text-end ms-auto">
-                            {currencySymbolHandling(
-                                allConfigData,
-                                currency,
-                                paymentPrint ? paymentPrint.discount : "0.00"
-                            )}
-                        </div>
-                    </div>
-                    <div className="d-flex">
-                        <div
-                            style={{
-                                fontWeight: "500",
-                                color: "#000000",
-                            }}
-                        >
-                            {getFormattedMessage("globally.detail.shipping")}:
-                        </div>
-                        <div className="text-end ms-auto">
-                            {currencySymbolHandling(
-                                allConfigData,
-                                currency,
-                                paymentPrint ? paymentPrint.shipping : "0.00"
-                            )}
-                        </div>
-                    </div>
+                    {paymentPrint.settings &&
+                        parseInt(
+                            paymentPrint.settings.attributes
+                                .show_tax_discount_shipping
+                        ) === 1 && (
+                            <div className="d-flex">
+                                <div
+                                    style={{
+                                        fontWeight: "500",
+                                        color: "#000000",
+                                    }}
+                                >
+                                    {getFormattedMessage(
+                                        "globally.detail.order.tax"
+                                    )}
+                                    :{" "}
+                                    {Number(paymentPrint.tax) > 0
+                                        ? paymentPrint
+                                            ? `(${Number(
+                                                  paymentPrint.tax
+                                              ).toFixed(2)}%)`
+                                            : "(0.00%)"
+                                        : null}
+                                </div>
+                                <div className="text-end ms-auto">
+                                    {currencySymbolHandling(
+                                        allConfigData,
+                                        currency,
+                                        paymentPrint.taxTotal
+                                            ? paymentPrint.taxTotal
+                                            : "0.00"
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    {paymentPrint.settings &&
+                        parseInt(
+                            paymentPrint.settings.attributes
+                                .show_tax_discount_shipping
+                        ) === 1 && (
+                            <div className="d-flex">
+                                <div
+                                    style={{
+                                        fontWeight: "500",
+                                        color: "#000000",
+                                    }}
+                                >
+                                    {getFormattedMessage(
+                                        "globally.detail.discount"
+                                    )}
+                                    :
+                                </div>
+                                <div className="text-end ms-auto">
+                                    {currencySymbolHandling(
+                                        allConfigData,
+                                        currency,
+                                        paymentPrint
+                                            ? paymentPrint.discount
+                                            : "0.00"
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    {paymentPrint.settings &&
+                        parseInt(
+                            paymentPrint.settings.attributes
+                                .show_tax_discount_shipping
+                        ) === 1 &&
+                        parseFloat(paymentPrint.shipping) !== 0.0 && (
+                            <div className="d-flex">
+                                <div
+                                    style={{
+                                        fontWeight: "500",
+                                        color: "#000000",
+                                    }}
+                                >
+                                    {getFormattedMessage(
+                                        "globally.detail.shipping"
+                                    )}
+                                    :
+                                </div>
+                                <div className="text-end ms-auto">
+                                    {currencySymbolHandling(
+                                        allConfigData,
+                                        currency,
+                                        paymentPrint
+                                            ? paymentPrint.shipping
+                                            : "0.00"
+                                    )}
+                                </div>
+                            </div>
+                        )}
                     <div className="d-flex">
                         <div
                             style={{
@@ -418,22 +477,38 @@ class PrintData extends React.PureComponent {
                 ) : (
                     ""
                 )}
-                <h3
-                    style={{
-                        textAlign: "center",
-                        color: "#000000",
-                        padding: "none !important",
-                    }}
-                >
-                    {getFormattedMessage("pos-thank.you-slip.invoice")}.
-                </h3>
+                {paymentPrint.settings &&
+                    parseInt(paymentPrint.settings.attributes.show_note) ===
+                        1 && (
+                        <h3
+                            style={{
+                                textAlign: "center",
+                                color: "#000000",
+                                padding: "none !important",
+                            }}
+                        >
+                            {paymentPrint.settings &&
+                            paymentPrint.settings.attributes.notes
+                                ? paymentPrint.settings &&
+                                  paymentPrint.settings.attributes.notes
+                                : ""}
+                        </h3>
+                    )}
                 <div className="text-center d-block">
-                    <Image
-                        src={paymentPrint && paymentPrint.barcode_url}
-                        alt={paymentPrint && paymentPrint.reference_code}
-                        height={25}
-                        width={100}
-                    />
+                    {paymentPrint.settings &&
+                        parseInt(
+                            paymentPrint.settings.attributes
+                                ?.show_barcode_in_receipt
+                        ) === 1 && (
+                            <Image
+                                src={paymentPrint && paymentPrint.barcode_url}
+                                alt={
+                                    paymentPrint && paymentPrint.reference_code
+                                }
+                                height={25}
+                                width={100}
+                            />
+                        )}
                     <span
                         className="d-block"
                         style={{

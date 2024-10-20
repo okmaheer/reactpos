@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap-v5";
 import { useDispatch } from "react-redux";
 import { addToast } from "../../../store/action/toastAction";
-import { toastType } from "../../../constants";
+import { discountType, toastType } from "../../../constants";
 import { getFormattedMessage } from "../../../shared/sharedMethod";
 import ResetCartConfirmationModal from "./ResetCartConfirmationModal";
 import HoldCartConfirmationModal from "./HoldCartConfirmationModal";
@@ -154,6 +154,8 @@ const PaymentButton = (props) => {
     const onConfirm = () => {
         setUpdateProducts([]);
         setCartItemValue({
+            discount_type: discountType.FIXED,
+            discount_value: 0,
             discount: 0,
             tax: 0,
             shipping: 0,
@@ -200,6 +202,8 @@ const PaymentButton = (props) => {
             setIsHold(false);
             setUpdateProducts([]);
             setCartItemValue({
+                discount_type: discountType.FIXED,
+                discount_value: 0,
                 discount: 0,
                 tax: 0,
                 shipping: 0,

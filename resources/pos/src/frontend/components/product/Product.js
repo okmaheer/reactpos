@@ -11,6 +11,7 @@ import {
     getFormattedMessage,
 } from "../../../shared/sharedMethod";
 import { toastType } from "../../../constants";
+import Skelten from "../../../shared/components/loaders/Skelten";
 
 const Product = (props) => {
     const {
@@ -26,6 +27,7 @@ const Product = (props) => {
         newCost,
         selectedOption,
         allConfigData,
+        isLoading,
     } = props;
     const [updateProducts, setUpdateProducts] = useState([]);
     const [play] = useSound(
@@ -199,11 +201,17 @@ const Product = (props) => {
                     : ""
             } product-list-block pt-1`}
         >
-            <div className="d-flex flex-wrap product-list-block__product-block">
+            <div className="d-flex flex-wrap product-list-block__product-block w-100">
                 {posFilterProduct && posFilterProduct.length === 0 ? (
-                    <h4 className="m-auto">
-                        {getFormattedMessage("pos-no-product-available.label")}
-                    </h4>
+                    isLoading ? (
+                        <Skelten />
+                    ) : (
+                        <h4 className="m-auto">
+                            {getFormattedMessage(
+                                "pos-no-product-available.label"
+                            )}
+                        </h4>
+                    )
                 ) : (
                     ""
                 )}
@@ -223,8 +231,8 @@ const Product = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    const { posAllProducts, allConfigData } = state;
-    return { posAllProducts, allConfigData };
+    const { posAllProducts, allConfigData, isLoading } = state;
+    return { posAllProducts, allConfigData, isLoading };
 };
 
 export default connect(mapStateToProps, { posAllProduct, posFetchProduct })(

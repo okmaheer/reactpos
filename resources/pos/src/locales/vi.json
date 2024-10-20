@@ -810,7 +810,19 @@
     "variation.type.input.name.validate.label": "Vui lòng nhập loại biến thể hợp lệ",
     "variation.select.validation.error.message": "Vui lòng chọn một biến thể",
     "variation.type.select.validate.error.message": "Vui lòng chọn loại biến thể",
-    "products.warehouse.title":"Kho sản phẩm",
-    "barcode-symbol-uppercase-validation-message":"Vui lòng chỉ nhập chữ in hoa và số cho mã vạch Mã 39.",
-    "sale.product-qty.limit.validate.message":"Bạn không thể mua nhiều hơn số lượng giới hạn"
+    "products.warehouse.title": "Kho sản phẩm",
+    "barcode-symbol-uppercase-validation-message": "Vui lòng chỉ nhập chữ in hoa và số cho mã vạch Mã 39.",
+    "sale.product-qty.limit.validate.message": "Bạn không thể mua nhiều hơn số lượng giới hạn",
+    "receipt-settings.title": "Makbuz Ayarları",
+    "receipt-settings.show-warehouse.label": "Depoyu Göster",
+    "receipt-settings.show-email.label": "E-postayı Göster",
+    "receipt-settings.show-address.label": "Adresi Göster",
+    "receipt-settings.show-customer.label": "Müşteriyi Göster",
+    "receipt-settings.show-phone.label": "Telefonu Göster",
+    "receipt-settings.show-tax-discount-shipping.label": "Vergi ve İndirim ve Kargoyu Göster",
+    "receipt-settings.success.edit.message": "Makbuz ayarı başarıyla güncellendi",
+    "receipt-settigns.input.note.validate.label": "Lütfen notu girin",
+    "receipt-settings.show-barcode.label":"Hiển thị mã vạch trong biên nhận",
+    "receipt-settings.show-note.label":"Hiển thị ghi chú",
+    "globally.submit-and-print-button":"Gửi và in"
 }

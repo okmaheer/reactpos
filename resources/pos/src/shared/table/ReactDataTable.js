@@ -52,6 +52,8 @@ const ReactDataTable = (props) => {
         onReportPdfClick,
         importBtnTitle,
         goToImportProduct,
+        isExportDropdown,
+        isImportDropdown
     } = props;
     const [perPage, setPerPages] = useState(defaultLimit);
     const [pageSize, setPageSize] = useState(Filters.OBJ.pageSize);
@@ -148,12 +150,12 @@ const ReactDataTable = (props) => {
 
     const onResetClick = () => {
         dispatch(setProductUnitId(0));
-        setStatus( { label: 'All', value: '0' } )
-        setPaymentStatus( { label: 'All', value: '0' } )
-        setPaymentType( { label: 'All', value: '0' } )
-        setProductUnit( { label: 'All', value: '0' } )
-        setTableWarehouseValue( { label: "All", value: "0" } )
-        dispatch( { type: 'ON_TOGGLE', payload: false } )
+        setStatus({ label: 'All', value: '0' })
+        setPaymentStatus({ label: 'All', value: '0' })
+        setPaymentType({ label: 'All', value: '0' })
+        setProductUnit({ label: 'All', value: '0' })
+        setTableWarehouseValue({ label: "All", value: "0" })
+        dispatch({ type: 'ON_TOGGLE', payload: false })
     }
 
     const onWarehouseChange = (obj) => {
@@ -176,6 +178,8 @@ const ReactDataTable = (props) => {
                 >
                     {isShowFilterField ? (
                         <FilterDropdown
+                            onExcelClick={onExcelClick}
+                            goToImport={goToImport}
                             paymentStatus={paymentStatus}
                             status={status}
                             title={title}
@@ -199,6 +203,8 @@ const ReactDataTable = (props) => {
                             onResetClick={onResetClick}
                             onPaymentStatusChange={onPaymentStatusChange}
                             onPaymentTypeChange={onPaymentTypeChange}
+                            isExportDropdown={isExportDropdown}
+                            isImportDropdown={isImportDropdown}
                         />
                     ) : null}
                     {AddButton}
@@ -276,8 +282,8 @@ const ReactDataTable = (props) => {
                                 {importBtnTitle
                                     ? getFormattedMessage(importBtnTitle)
                                     : getFormattedMessage(
-                                          "product.import.title"
-                                      )}
+                                        "product.import.title"
+                                    )}
                             </Button>
                         </div>
                     ) : (
@@ -305,8 +311,8 @@ const ReactDataTable = (props) => {
                         ? ""
                         : searchText.toLowerCase()
                     : "" || searchText !== ""
-                    ? searchText.toLowerCase()
-                    : "",
+                        ? searchText.toLowerCase()
+                        : "",
             start_date: selectDate ? selectDate.start_date : null,
             end_date: selectDate ? selectDate.end_date : null,
             payment_status: paymentStatus ? paymentStatus.value : null,
@@ -317,8 +323,8 @@ const ReactDataTable = (props) => {
             warehouse_id: warehouseValue
                 ? warehouseValue.value
                 : tableWarehouseValue
-                ? tableWarehouseValue.value
-                : null,
+                    ? tableWarehouseValue.value
+                    : null,
             customer_id: customerId ? customerId : null,
         };
         onChange(filters);

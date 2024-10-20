@@ -9,7 +9,7 @@ const TabTitle = (props) => {
     return (
         <Helmet>
             <title>{title + ' '} {frontSetting ? ` | ${frontSetting?.value?.company_name}` : ""}</title>
-            frontSetting && <link rel="icon" type="image/png" href={frontSetting ? frontSetting?.value?.logo : "./../../../public/favicon.ico"}  sizes="16x16" />
+            {frontSetting && <link rel="icon" type="image/png" href={frontSetting ? frontSetting?.value?.logo : "./../../../public/favicon.ico"}  sizes="16x16" />}
         </Helmet>
     )
 }

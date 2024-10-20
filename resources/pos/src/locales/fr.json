@@ -803,7 +803,19 @@
     "variation.type.input.name.validate.label": "Veuillez saisir des types de variation valides",
     "variation.select.validation.error.message": "Veuillez sélectionner une variation",
     "variation.type.select.validate.error.message": "Veuillez sélectionner des types de variation",
-    "products.warehouse.title":"Entrepôt de produits",
-    "barcode-symbol-uppercase-validation-message":"Veuillez saisir uniquement des lettres majuscules et des chiffres pour le code-barres Code 39.",
-    "sale.product-qty.limit.validate.message":"Vous ne pouvez pas acheter plus que la quantité limite"
+    "products.warehouse.title": "Entrepôt de produits",
+    "barcode-symbol-uppercase-validation-message": "Veuillez saisir uniquement des lettres majuscules et des chiffres pour le code-barres Code 39.",
+    "sale.product-qty.limit.validate.message": "Vous ne pouvez pas acheter plus que la quantité limite",
+    "receipt-settings.title": "Paramètres du reçu",
+    "receipt-settings.show-warehouse.label": "Afficher l'entrepôt",
+    "receipt-settings.show-email.label": "Afficher l'e-mail",
+    "receipt-settings.show-address.label": "Afficher l'adresse",
+    "receipt-settings.show-customer.label": "Afficher le client",
+    "receipt-settings.show-phone.label": "Afficher le téléphone",
+    "receipt-settings.show-tax-discount-shipping.label": "Afficher les taxes, les remises et les frais d'expédition",
+    "receipt-settings.success.edit.message": "Paramètre du reçu mis à jour avec succès",
+    "receipt-settigns.input.note.validate.label": "Veuillez saisir une note",
+    "receipt-settings.show-barcode.label": "Afficher le code-barres sur le reçu",
+    "receipt-settings.show-note.label": "Afficher la note",
+    "globally.submit-and-print-button": "Soumettre et imprimer"
 }

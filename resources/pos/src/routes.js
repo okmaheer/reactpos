@@ -87,6 +87,7 @@ import EditLanguageData from "./components/languages/EditLanguageData";
 import BaseUnits from "./components/base-unit/BaseUnits";
 import RegisterReport from "./components/report/registerReport/RegisterReport";
 import Variation from "./components/variation/Variation";
+import ReceiptSettings from "./components/settings/ReceiptSettings";
 
 export const route = [
     {
@@ -248,6 +249,11 @@ export const route = [
     {
         path: "mail-settings",
         ele: <MailSettings />,
+        permission: Permissions.MANAGE_SETTING,
+    },
+    {
+        path: "receipt-settings",
+        ele: <ReceiptSettings />,
         permission: Permissions.MANAGE_SETTING,
     },
     {

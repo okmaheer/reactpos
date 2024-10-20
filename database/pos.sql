@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 04, 2023 at 05:22 AM
--- Server version: 8.1.0
--- PHP Version: 8.2.12
+-- Generation Time: Mar 28, 2024 at 03:54 AM
+-- Server version: 8.3.0
+-- PHP Version: 8.1.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -72,9 +72,9 @@ CREATE TABLE `base_units` (
 --
 
 INSERT INTO `base_units` (`id`, `name`, `is_default`, `created_at`, `updated_at`) VALUES
-(1, 'piece', 1, '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(2, 'meter', 1, '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(3, 'kilogram', 1, '2023-11-03 23:52:45', '2023-11-03 23:52:45');
+(1, 'piece', 1, '2024-03-27 08:30:30', '2024-03-27 08:30:31'),
+(2, 'meter', 1, '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(3, 'kilogram', 1, '2024-03-27 08:30:31', '2024-03-27 08:30:31');
 
 -- --------------------------------------------------------
 
@@ -408,7 +408,7 @@ CREATE TABLE `currencies` (
 --
 
 INSERT INTO `currencies` (`id`, `name`, `code`, `symbol`, `created_at`, `updated_at`) VALUES
-(1, 'India', 'INR', '₹', '2023-11-03 23:52:46', '2023-11-03 23:52:46');
+(1, 'India', 'INR', '₹', '2024-03-27 08:30:32', '2024-03-27 08:30:32');
 
 -- --------------------------------------------------------
 
@@ -434,7 +434,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `email`, `phone`, `dob`, `country`, `city`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'walk-in-customer', 'customer@infypos.com', '123456789', NULL, 'india', 'mumbai', 'Dr Deshmukh Marg , mumbai', '2023-11-03 23:52:46', '2023-11-03 23:52:46');
+(1, 'walk-in-customer', 'customer@infypos.com', '123456789', NULL, 'india', 'mumbai', 'Dr Deshmukh Marg , mumbai', '2024-03-27 08:30:32', '2024-03-27 08:30:32');
 
 -- --------------------------------------------------------
 
@@ -555,14 +555,14 @@ CREATE TABLE `languages` (
 --
 
 INSERT INTO `languages` (`id`, `name`, `iso_code`, `is_default`, `created_at`, `updated_at`) VALUES
-(1, 'Arabic', 'ar', 0, '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(2, 'Chinese', 'cn', 0, '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(3, 'English', 'en', 1, '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(4, 'French', 'fr', 0, '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(5, 'German', 'gr', 0, '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(6, 'Spanish', 'sp', 0, '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(7, 'Turkish', 'tr', 0, '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(8, 'vietnamese', 'vi', 0, '2023-11-03 23:52:45', '2023-11-03 23:52:45');
+(1, 'Arabic', 'ar', 0, '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(2, 'Chinese', 'cn', 0, '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(3, 'English', 'en', 1, '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(4, 'French', 'fr', 0, '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(5, 'German', 'gr', 0, '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(6, 'Spanish', 'sp', 0, '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(7, 'Turkish', 'tr', 0, '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(8, 'vietnamese', 'vi', 0, '2024-03-27 08:30:31', '2024-03-27 08:30:31');
 
 -- --------------------------------------------------------
 
@@ -585,8 +585,24 @@ CREATE TABLE `mail_templates` (
 --
 
 INSERT INTO `mail_templates` (`id`, `template_name`, `content`, `type`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'GREETING TO CUSTOMER ON SALES !', '<p>Hi, {customer_name}</p><p>Your sales Id is {sales_id}</p><p>Sales Date: {sales_date}</p><p>Total Amount: {sales_amount}</p><p>You have paid: {paid_amount}</p><p>Due amount: {due_amount}</p><p>Regards,  {app_name}</p>', '1', '2023-11-03 23:52:45', '2023-11-03 23:52:45', 0),
-(2, 'GREETING TO CUSTOMER ON SALES RETURN !', '<p>Hi, {customer_name}</p><p>Your sales return Id is {sales_return_id}</p><p>Sales return Date: {sales_return_date}</p><p>Total Amount: {sales_return_amount}</p><p>Regards,  {app_name}</p>', '2', '2023-11-03 23:52:45', '2023-11-03 23:52:45', 0);
+(1, 'GREETING TO CUSTOMER ON SALES !', '<p>Hi, {customer_name}</p><p>Your sales Id is {sales_id}</p><p>Sales Date: {sales_date}</p><p>Total Amount: {sales_amount}</p><p>You have paid: {paid_amount}</p><p>Due amount: {due_amount}</p><p>Regards,  {app_name}</p>', '1', '2024-03-27 08:30:28', '2024-03-27 08:30:28', 0),
+(2, 'GREETING TO CUSTOMER ON SALES RETURN !', '<p>Hi, {customer_name}</p><p>Your sales return Id is {sales_return_id}</p><p>Sales return Date: {sales_return_date}</p><p>Total Amount: {sales_return_amount}</p><p>Regards,  {app_name}</p>', '2', '2024-03-27 08:30:28', '2024-03-27 08:30:28', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `main_products`
+--
+
+CREATE TABLE `main_products` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_unit` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_type` tinyint NOT NULL COMMENT '1=Single, 2=Variable',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -732,7 +748,20 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (82, '2023_06_16_115153_add_new_field_into_sales_table', 1),
 (83, '2023_07_07_064405_create_coupon_codes_table', 1),
 (84, '2023_07_07_083655_create_coupon_product_table', 1),
-(85, '2023_09_16_000000_rename_password_resets_table', 1);
+(85, '2023_09_16_000000_rename_password_resets_table', 1),
+(86, '2023_11_21_115157_add_manage_variations_permission', 1),
+(87, '2023_11_21_123327_create_variations_table', 1),
+(88, '2023_11_21_123338_create_variation_types_table', 1),
+(89, '2023_12_21_065548_add_product_code_field_in_products_table', 1),
+(90, '2023_12_21_090730_add_variation_products_table', 1),
+(91, '2023_12_22_064744_create_main_products_table', 1),
+(92, '2023_12_22_065109_add_main_product_id_field_in_variation_products_table', 1),
+(93, '2023_12_22_065227_fill_up_product_code', 1),
+(94, '2023_12_29_064841_add_main_product_id_field_in_products_table', 1),
+(95, '2023_12_29_065039_fill_up_main_product_table_data', 1),
+(96, '2024_01_12_093843_move_product_images_to_main_product', 1),
+(97, '2024_03_01_085230_add_new_field_in_settings_table', 1),
+(98, '2024_03_13_103510_add_new_setting_value_in_settings_table', 1);
 
 -- --------------------------------------------------------
 
@@ -797,33 +826,34 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `name`, `display_name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'manage_adjustments', 'Manage Adjustments', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(2, 'manage_transfers', 'Manage Transfers', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(3, 'manage_roles', 'Manage Roles', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(4, 'manage_brands', 'Manage Brands', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(5, 'manage_currency', 'Manage Currency', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(6, 'manage_warehouses', 'Manage Warehouses', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(7, 'manage_units', 'Manage Units', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(8, 'manage_product_categories', 'Manage Product Categories', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(9, 'manage_products', 'Manage Products ', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(10, 'manage_suppliers', 'Manage Suppliers', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(11, 'manage_customers', 'Manage Customers', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(12, 'manage_users', 'Manage Users', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(13, 'manage_expense_categories', 'Manage Expense Categories', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(14, 'manage_expenses', 'Manage Expenses', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(15, 'manage_setting', 'Manage Setting', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(16, 'manage_dashboard', 'Manage Dashboard', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(17, 'manage_pos_screen', 'Manage Pos Screen', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(18, 'manage_purchase', 'Manage Purchase', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(19, 'manage_sale', 'Manage Sale', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(20, 'manage_purchase_return', 'Manage Purchase Return', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(21, 'manage_sale_return', 'Manage Sale Return', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(22, 'manage_email_templates', 'Manage Email Templates', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(23, 'manage_reports', 'Manage Reports', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(24, 'manage_quotations', 'Manage Quotations', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(25, 'manage_sms_templates', 'Manage Sms Templates', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(26, 'manage_sms_apis', 'Manage Sms Apis', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(27, 'manage_language', 'Manage Language', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45');
+(1, 'manage_adjustments', 'Manage Adjustments', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(2, 'manage_transfers', 'Manage Transfers', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(3, 'manage_roles', 'Manage Roles', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(4, 'manage_brands', 'Manage Brands', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(5, 'manage_currency', 'Manage Currency', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(6, 'manage_warehouses', 'Manage Warehouses', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(7, 'manage_units', 'Manage Units', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(8, 'manage_product_categories', 'Manage Product Categories', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(9, 'manage_products', 'Manage Products ', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(10, 'manage_suppliers', 'Manage Suppliers', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(11, 'manage_customers', 'Manage Customers', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(12, 'manage_users', 'Manage Users', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(13, 'manage_expense_categories', 'Manage Expense Categories', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(14, 'manage_expenses', 'Manage Expenses', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(15, 'manage_setting', 'Manage Setting', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(16, 'manage_dashboard', 'Manage Dashboard', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(17, 'manage_pos_screen', 'Manage Pos Screen', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(18, 'manage_purchase', 'Manage Purchase', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(19, 'manage_sale', 'Manage Sale', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(20, 'manage_purchase_return', 'Manage Purchase Return', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(21, 'manage_sale_return', 'Manage Sale Return', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(22, 'manage_email_templates', 'Manage Email Templates', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(23, 'manage_reports', 'Manage Reports', 'web', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(24, 'manage_quotations', 'Manage Quotations', 'web', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(25, 'manage_sms_templates', 'Manage Sms Templates', 'web', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(26, 'manage_sms_apis', 'Manage Sms Apis', 'web', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(27, 'manage_language', 'Manage Language', 'web', '2024-03-27 08:30:31', '2024-03-27 08:30:31'),
+(28, 'manage_variations', 'Manage Variations', 'web', '2024-03-27 08:30:31', '2024-03-27 08:30:31');
 
 -- --------------------------------------------------------
 
@@ -875,8 +905,10 @@ CREATE TABLE `pos_register` (
 
 CREATE TABLE `products` (
   `id` bigint UNSIGNED NOT NULL,
+  `main_product_id` bigint UNSIGNED DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `barcode_symbol` int NOT NULL DEFAULT '1',
   `product_category_id` bigint UNSIGNED NOT NULL,
   `brand_id` bigint UNSIGNED NOT NULL,
@@ -1081,7 +1113,7 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'admin', ' Admin', 'web', '2023-11-03 23:52:45', '2023-11-03 23:52:45');
+(1, 'admin', ' Admin', 'web', '2024-03-27 08:30:28', '2024-03-27 08:30:28');
 
 -- --------------------------------------------------------
 
@@ -1125,7 +1157,8 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (24, 1),
 (25, 1),
 (26, 1),
-(27, 1);
+(27, 1),
+(28, 1);
 
 -- --------------------------------------------------------
 
@@ -1270,40 +1303,42 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
-(1, 'show_version_on_footer', '1', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(2, 'country', 'India', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(3, 'state', 'Gujarat', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(4, 'city', 'Surat', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(5, 'postcode', '395007', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(6, 'date_format', 'y-m-d', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(7, 'purchase_code', 'PU', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(8, 'purchase_return_code', 'PR', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(9, 'sale_code', 'SA', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(10, 'sale_return_code', 'SR', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(11, 'expense_code', 'EX', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(12, 'is_currency_right', '0', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(13, 'currency', '1', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(14, 'email', 'support@infypos.com', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(15, 'company_name', 'infy-pos', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(16, 'phone', '1234567890', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(17, 'developed', 'infyom', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(18, 'footer', '2022 Developed by Infy-pos All rights reserved - v1.1.0', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(19, 'default_language', '1', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(20, 'default_customer', '1', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(21, 'default_warehouse', '1', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(22, 'address', 'C-303, Atlanta Shopping Mall, Nr. Sudama Chowk, Mota Varachha, Surat, Gujarat, India.', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(23, 'stripe_key', 'pu_test_yBzA1qI1PcfRBAVn1vJG2VuS00HcyhQX9LASERTFDDS', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(24, 'stripe_secret', 'pu_test_yBzA1qI1PcfRBAVn1vJG2VuS00HcyhQX9LASERTFDDS', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(25, 'sms_gateway', '1', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(26, 'twillo_sid', 'asd', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(27, 'twillo_token', 'asd', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(28, 'twillo_from', 'asd', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(29, 'smtp_host', 'mailtrap.io', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(30, 'smtp_port', '2525', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(31, 'smtp_username', 'test', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(32, 'smtp_password', 'test', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(33, 'smtp_Encryption', 'tls', '2023-11-03 23:52:46', '2023-11-03 23:52:46'),
-(34, 'logo', 'images/infycare-logo.png', '2023-11-03 23:52:46', '2023-11-03 23:52:46');
+(1, 'show_version_on_footer', '1', '2024-03-27 08:30:28', '2024-03-27 08:30:28'),
+(2, 'country', 'India', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(3, 'state', 'Gujarat', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(4, 'city', 'Surat', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(5, 'postcode', '395007', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(6, 'date_format', 'y-m-d', '2024-03-27 08:30:29', '2024-03-27 08:30:29'),
+(7, 'purchase_code', 'PU', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(8, 'purchase_return_code', 'PR', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(9, 'sale_code', 'SA', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(10, 'sale_return_code', 'SR', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(11, 'expense_code', 'EX', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(12, 'is_currency_right', '0', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(13, 'show_logo_in_receipt', '1', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(14, 'show_app_name_in_sidebar', '1', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(15, 'currency', '1', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(16, 'email', 'support@infypos.com', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(17, 'company_name', 'infy-pos', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(18, 'phone', '1234567890', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(19, 'developed', 'infyom', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(20, 'footer', '2022 Developed by Infy-pos All rights reserved - v1.1.0', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(21, 'default_language', '1', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(22, 'default_customer', '1', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(23, 'default_warehouse', '1', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(24, 'address', 'C-303, Atlanta Shopping Mall, Nr. Sudama Chowk, Mota Varachha, Surat, Gujarat, India.', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(25, 'stripe_key', 'pu_test_yBzA1qI1PcfRBAVn1vJG2VuS00HcyhQX9LASERTFDDS', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(26, 'stripe_secret', 'pu_test_yBzA1qI1PcfRBAVn1vJG2VuS00HcyhQX9LASERTFDDS', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(27, 'sms_gateway', '1', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(28, 'twillo_sid', 'asd', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(29, 'twillo_token', 'asd', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(30, 'twillo_from', 'asd', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(31, 'smtp_host', 'mailtrap.io', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(32, 'smtp_port', '2525', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(33, 'smtp_username', 'test', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(34, 'smtp_password', 'test', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(35, 'smtp_Encryption', 'tls', '2024-03-27 08:30:32', '2024-03-27 08:30:32'),
+(36, 'logo', 'images/infycare-logo.png', '2024-03-27 08:30:32', '2024-03-27 08:30:32');
 
 -- --------------------------------------------------------
 
@@ -1324,10 +1359,10 @@ CREATE TABLE `sms_settings` (
 --
 
 INSERT INTO `sms_settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
-(1, 'url', 'http://test.com/api/test.php', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(2, 'mobile_key', '', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(3, 'message_key', '', '2023-11-03 23:52:45', '2023-11-03 23:52:45'),
-(4, 'payload', '', '2023-11-03 23:52:45', '2023-11-03 23:52:45');
+(1, 'url', 'http://test.com/api/test.php', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(2, 'mobile_key', '', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(3, 'message_key', '', '2024-03-27 08:30:30', '2024-03-27 08:30:30'),
+(4, 'payload', '', '2024-03-27 08:30:30', '2024-03-27 08:30:30');
 
 -- --------------------------------------------------------
 
@@ -1350,8 +1385,8 @@ CREATE TABLE `sms_templates` (
 --
 
 INSERT INTO `sms_templates` (`id`, `template_name`, `content`, `type`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'GREETING TO CUSTOMER ON SALES !', 'Hi {customer_name}, Your sales Id is {sales_id}, Sales Date {sales_date}, Total Amount {sales_amount}, You have paid {paid_amount}, and customer total due amount is {due_amount} Thank you visit again', '1', '2023-11-03 23:52:45', '2023-11-03 23:52:45', 0),
-(2, 'GREETING TO CUSTOMER ON SALES RETURN !', 'Hi {customer_name}, Your sales return Id is {sales_return_id}, Sales return Date {sales_return_date}, and Total Amount is {sales_return_amount} Thank you visit again', '2', '2023-11-03 23:52:45', '2023-11-03 23:52:45', 0);
+(1, 'GREETING TO CUSTOMER ON SALES !', 'Hi {customer_name}, Your sales Id is {sales_id}, Sales Date {sales_date}, Total Amount {sales_amount}, You have paid {paid_amount}, and customer total due amount is {due_amount} Thank you visit again', '1', '2024-03-27 08:30:30', '2024-03-27 08:30:30', 0),
+(2, 'GREETING TO CUSTOMER ON SALES RETURN !', 'Hi {customer_name}, Your sales return Id is {sales_return_id}, Sales return Date {sales_return_date}, and Total Amount is {sales_return_amount} Thank you visit again', '2', '2024-03-27 08:30:30', '2024-03-27 08:30:30', 0);
 
 -- --------------------------------------------------------
 
@@ -5589,7 +5624,50 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `status`, `language`) VALUES
-(1, 'admin', NULL, 'admin@infy-pos.com', NULL, '2023-11-03 23:52:45', '$2y$10$7wFp3nL4Uml7s8OIEfYQjOcxfsr7fJe2Rzl9cwg6X8EI1C3e/MbCG', NULL, '2023-11-03 23:52:45', '2023-11-03 23:52:45', 1, 'en');
+(1, 'admin', NULL, 'admin@infy-pos.com', NULL, '2024-03-27 08:30:32', '$2y$10$PxMjpdL2VjUdAzzGs9jyyOVe9YaEK4n77XNbzMAbdbxr2Hja.e/gO', NULL, '2024-03-27 08:30:32', '2024-03-27 08:30:32', 1, 'en');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `variations`
+--
+
+CREATE TABLE `variations` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `variation_products`
+--
+
+CREATE TABLE `variation_products` (
+  `id` bigint UNSIGNED NOT NULL,
+  `main_product_id` bigint UNSIGNED DEFAULT NULL,
+  `product_id` bigint UNSIGNED NOT NULL,
+  `variation_id` bigint UNSIGNED NOT NULL,
+  `variation_type_id` bigint UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `variation_types`
+--
+
+CREATE TABLE `variation_types` (
+  `id` bigint UNSIGNED NOT NULL,
+  `variation_id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -5614,7 +5692,7 @@ CREATE TABLE `warehouses` (
 --
 
 INSERT INTO `warehouses` (`id`, `name`, `phone`, `country`, `city`, `email`, `zip_code`, `created_at`, `updated_at`) VALUES
-(1, 'warehouse', '123456789', 'india', 'mumbai', 'warehouse1@infypos.com', '12345', '2023-11-03 23:52:46', '2023-11-03 23:52:46');
+(1, 'warehouse', '123456789', 'india', 'mumbai', 'warehouse1@infypos.com', '12345', '2024-03-27 08:30:32', '2024-03-27 08:30:32');
 
 --
 -- Indexes for dumped tables
@@ -5736,6 +5814,12 @@ ALTER TABLE `mail_templates`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `main_products`
+--
+ALTER TABLE `main_products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `manage_stocks`
 --
 ALTER TABLE `manage_stocks`
@@ -5806,7 +5890,8 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `products_code_unique` (`code`),
   ADD KEY `products_product_category_id_foreign` (`product_category_id`),
-  ADD KEY `products_brand_id_foreign` (`brand_id`);
+  ADD KEY `products_brand_id_foreign` (`brand_id`),
+  ADD KEY `products_main_product_id_foreign` (`main_product_id`);
 
 --
 -- Indexes for table `product_categories`
@@ -5980,6 +6065,30 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `variations`
+--
+ALTER TABLE `variations`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `variations_name_unique` (`name`);
+
+--
+-- Indexes for table `variation_products`
+--
+ALTER TABLE `variation_products`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `variation_products_product_id_foreign` (`product_id`),
+  ADD KEY `variation_products_variation_id_foreign` (`variation_id`),
+  ADD KEY `variation_products_variation_type_id_foreign` (`variation_type_id`),
+  ADD KEY `variation_products_main_product_id_foreign` (`main_product_id`);
+
+--
+-- Indexes for table `variation_types`
+--
+ALTER TABLE `variation_types`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `variation_types_variation_id_foreign` (`variation_id`);
+
+--
 -- Indexes for table `warehouses`
 --
 ALTER TABLE `warehouses`
@@ -6081,6 +6190,12 @@ ALTER TABLE `mail_templates`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `main_products`
+--
+ALTER TABLE `main_products`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `manage_stocks`
 --
 ALTER TABLE `manage_stocks`
@@ -6096,13 +6211,13 @@ ALTER TABLE `media`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -6204,7 +6319,7 @@ ALTER TABLE `sale_return_items`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `sms_settings`
@@ -6253,6 +6368,24 @@ ALTER TABLE `units`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `variations`
+--
+ALTER TABLE `variations`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `variation_products`
+--
+ALTER TABLE `variation_products`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `variation_types`
+--
+ALTER TABLE `variation_types`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `warehouses`
@@ -6335,6 +6468,7 @@ ALTER TABLE `pos_register`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_brand_id_foreign` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_main_product_id_foreign` FOREIGN KEY (`main_product_id`) REFERENCES `main_products` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `products_product_category_id_foreign` FOREIGN KEY (`product_category_id`) REFERENCES `product_categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -6441,6 +6575,21 @@ ALTER TABLE `transfers`
 ALTER TABLE `transfer_items`
   ADD CONSTRAINT `transfer_items_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transfer_items_transfer_id_foreign` FOREIGN KEY (`transfer_id`) REFERENCES `transfers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `variation_products`
+--
+ALTER TABLE `variation_products`
+  ADD CONSTRAINT `variation_products_main_product_id_foreign` FOREIGN KEY (`main_product_id`) REFERENCES `main_products` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `variation_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `variation_products_variation_id_foreign` FOREIGN KEY (`variation_id`) REFERENCES `variations` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `variation_products_variation_type_id_foreign` FOREIGN KEY (`variation_type_id`) REFERENCES `variation_types` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `variation_types`
+--
+ALTER TABLE `variation_types`
+  ADD CONSTRAINT `variation_types_variation_id_foreign` FOREIGN KEY (`variation_id`) REFERENCES `variations` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

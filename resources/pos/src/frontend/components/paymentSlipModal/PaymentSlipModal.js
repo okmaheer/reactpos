@@ -26,7 +26,7 @@ const PaymentSlipModal = (props) => {
         updateProducts.settings &&
         updateProducts.settings.attributes &&
         updateProducts.settings.attributes.currency_symbol;
-
+        
     return (
         <Modal
             show={modalShowPaymentSlip}
@@ -49,7 +49,7 @@ const PaymentSlipModal = (props) => {
             <Modal.Body className="pt-0 pb-3">
                 <div className="mt-4 mb-4 text-black text-center fs-1">
                     {settings.attributes &&
-                    settings.attributes.show_logo_in_receipt === "1" ? (
+                    parseInt(settings.attributes.show_logo_in_receipt) === 1 ? (
                         <img
                             src={frontSetting.value.logo}
                             alt=""
@@ -81,66 +81,76 @@ const PaymentSlipModal = (props) => {
                                 </span>
                             </td>
                         </tr>
-                        <tr>
-                            <td scope="row" className="p-0">
-                                <span className="address__label d-inline-block">
-                                    {getFormattedMessage(
-                                        "supplier.table.address.column.title"
-                                    )}
-                                    :
-                                </span>
-                                <span className="ms-2 address__value d-inline-block font-label">
-                                    {frontSetting.value &&
-                                        frontSetting.value.address}
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row" className="p-0">
-                                <span>
-                                    {getFormattedMessage(
-                                        "globally.input.email.label"
-                                    )}
-                                    :
-                                </span>
-                                <span className="ms-2 font-label">
-                                    {frontSetting.value &&
-                                        frontSetting.value.email}
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row" className="p-0">
-                                <span>
-                                    {getFormattedMessage(
-                                        "pos-sale.detail.Phone.info"
-                                    )}
-                                    :
-                                </span>
-                                <span className="ms-2 font-label">
-                                    {frontSetting.value &&
-                                        frontSetting.value.phone}
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="row" className="p-0">
-                                <span>
-                                    {" "}
-                                    {getFormattedMessage(
-                                        "dashboard.recentSales.customer.label"
-                                    )}
-                                    :{" "}
-                                </span>
-                                <span className="ms-2 font-label">
-                                    {updateProducts.customer_name &&
-                                    updateProducts.customer_name[0]
-                                        ? updateProducts.customer_name[0].label
-                                        : updateProducts.customer_name &&
-                                          updateProducts.customer_name.label}
-                                </span>
-                            </td>
-                        </tr>
+                        {parseInt(settings.attributes?.show_address) === 1 && (
+                            <tr>
+                                <td scope="row" className="p-0">
+                                    <span className="address__label d-inline-block">
+                                        {getFormattedMessage(
+                                            "supplier.table.address.column.title"
+                                        )}
+                                        :
+                                    </span>
+                                    <span className="ms-2 address__value d-inline-block font-label">
+                                        {frontSetting.value &&
+                                            frontSetting.value.address}
+                                    </span>
+                                </td>
+                            </tr>
+                        )}
+                        {parseInt(settings.attributes?.show_email) === 1 && (
+                            <tr>
+                                <td scope="row" className="p-0">
+                                    <span>
+                                        {getFormattedMessage(
+                                            "globally.input.email.label"
+                                        )}
+                                        :
+                                    </span>
+                                    <span className="ms-2 font-label">
+                                        {frontSetting.value &&
+                                            frontSetting.value.email}
+                                    </span>
+                                </td>
+                            </tr>
+                        )}
+                        {parseInt(settings.attributes?.show_phone) === 1 && (
+                            <tr>
+                                <td scope="row" className="p-0">
+                                    <span>
+                                        {getFormattedMessage(
+                                            "pos-sale.detail.Phone.info"
+                                        )}
+                                        :
+                                    </span>
+                                    <span className="ms-2 font-label">
+                                        {frontSetting.value &&
+                                            frontSetting.value.phone}
+                                    </span>
+                                </td>
+                            </tr>
+                        )}
+                        {parseInt(settings.attributes?.show_customer) === 1 && (
+                            <tr>
+                                <td scope="row" className="p-0">
+                                    <span>
+                                        {" "}
+                                        {getFormattedMessage(
+                                            "dashboard.recentSales.customer.label"
+                                        )}
+                                        :{" "}
+                                    </span>
+                                    <span className="ms-2 font-label">
+                                        {updateProducts.customer_name &&
+                                        updateProducts.customer_name[0]
+                                            ? updateProducts.customer_name[0]
+                                                  .label
+                                            : updateProducts.customer_name &&
+                                              updateProducts.customer_name
+                                                  .label}
+                                    </span>
+                                </td>
+                            </tr>
+                        )}
                     </tbody>
                 </Table>
                 {updateProducts.products &&
@@ -199,43 +209,52 @@ const PaymentSlipModal = (props) => {
                     </div>
                 </div>
 
-                <div className="d-flex product-border">
-                    <div>
-                        {getFormattedMessage("globally.detail.order.tax")}:
+                {parseInt(settings.attributes?.show_tax_discount_shipping) ===
+                    1 && (
+                    <div className="d-flex product-border">
+                        <div>
+                            {getFormattedMessage("globally.detail.order.tax")}:
+                        </div>
+                        <div className="text-end ms-auto">
+                            {" "}
+                            {currencySymbolHandling(
+                                allConfigData,
+                                currency,
+                                updateProducts.taxTotal
+                                    ? updateProducts.taxTotal
+                                    : "0.00"
+                            )}{" "}
+                            (
+                            {updateProducts
+                                ? parseFloat(updateProducts.tax).toFixed(2)
+                                : "0.00"}{" "}
+                            %)
+                        </div>
                     </div>
-                    <div className="text-end ms-auto">
-                        {" "}
-                        {currencySymbolHandling(
-                            allConfigData,
-                            currency,
-                            updateProducts.taxTotal
-                                ? updateProducts.taxTotal
-                                : "0.00"
-                        )}{" "}
-                        (
-                        {updateProducts
-                            ? parseFloat(updateProducts.tax).toFixed(2)
-                            : "0.00"}{" "}
-                        %)
+                )}
+                {parseInt(settings.attributes?.show_tax_discount_shipping) ===
+                    1 && (
+                    <div className="d-flex product-border">
+                        <div>
+                            {getFormattedMessage(
+                                "purchase.order-item.table.discount.column.label"
+                            )}
+                            :
+                        </div>
+                        <div className="text-end ms-auto">
+                            {" "}
+                            {currencySymbolHandling(
+                                allConfigData,
+                                currency,
+                                updateProducts
+                                    ? updateProducts.discount
+                                    : "0.00"
+                            )}
+                        </div>
                     </div>
-                </div>
-                <div className="d-flex product-border">
-                    <div>
-                        {getFormattedMessage(
-                            "purchase.order-item.table.discount.column.label"
-                        )}
-                        :
-                    </div>
-                    <div className="text-end ms-auto">
-                        {" "}
-                        {currencySymbolHandling(
-                            allConfigData,
-                            currency,
-                            updateProducts ? updateProducts.discount : "0.00"
-                        )}
-                    </div>
-                </div>
-                {updateProducts.shipping ? (
+                )}
+                {parseInt(settings.attributes?.show_tax_discount_shipping) ===
+                    1 && updateProducts.shipping ? (
                     <div className="d-flex product-border">
                         <div>Shipping:</div>
                         <div className="text-end ms-auto">
@@ -313,19 +332,24 @@ const PaymentSlipModal = (props) => {
                 ) : (
                     ""
                 )}
-                <h5 className="text-center font-label">
-                    {getFormattedMessage("pos-thank.you-slip.invoice")}.
-                </h5>
+               {parseInt(settings.attributes?.show_note) === 1 &&  <h5 className="text-center font-label">
+                    {settings.attributes?.notes
+                        ? settings.attributes?.notes
+                        : getFormattedMessage("pos-thank.you-slip.invoice")}
+                </h5>}
                 <div className="text-center d-block">
-                    <Image
-                        src={
-                            paymentDetails &&
-                            paymentDetails.attributes.barcode_url
-                        }
-                        className=""
-                        height={25}
-                        width={100}
-                    />
+                    {parseInt(settings.attributes?.show_barcode_in_receipt) ===
+                        1 && (
+                        <Image
+                            src={
+                                paymentDetails &&
+                                paymentDetails.attributes.barcode_url
+                            }
+                            className=""
+                            height={25}
+                            width={100}
+                        />
+                    )}
                     <span className="d-block">
                         {paymentDetails &&
                             paymentDetails.attributes.reference_code}

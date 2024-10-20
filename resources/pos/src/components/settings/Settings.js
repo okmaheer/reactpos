@@ -16,6 +16,7 @@ import ImagePicker from "../../shared/image-picker/ImagePicker";
 import {
     getFormattedMessage,
     numValidate,
+    numWithSpaceValidate,
     placeholderText,
 } from "../../shared/sharedMethod";
 import languages from "../../shared/option-lists/Language.json";
@@ -863,7 +864,7 @@ const Settings = (props) => {
                                         :
                                     </label>
                                     <Form.Control
-                                        type="number"
+                                        type="text"
                                         className="form-control"
                                         placeholder={placeholderText(
                                             "settings.system-settings.input.company-phone.placeholder.label"
@@ -872,7 +873,7 @@ const Settings = (props) => {
                                         min={0}
                                         value={settingValue.phone}
                                         onKeyPress={(event) =>
-                                            numValidate(event)
+                                            numWithSpaceValidate(event)
                                         }
                                         onChange={onChangeInput}
                                     />
@@ -1165,7 +1166,7 @@ const Settings = (props) => {
                                     </div>
                                 </div>
 
-                                <div className="col-lg-6 mb-3">
+                                {/* <div className="col-lg-6 mb-3">
                                     <div className="col-md-6">
                                         <label className="form-check form-check-custom form-check-solid form-check-inline d-flex align-items-center my-3 cursor-pointer custom-label">
                                             <input
@@ -1184,7 +1185,7 @@ const Settings = (props) => {
                                             )}
                                         </label>
                                     </div>
-                                </div>
+                                </div> */}
 
                                 {/* show app name inside bar */}
                                 <div className="col-lg-6 mb-3">

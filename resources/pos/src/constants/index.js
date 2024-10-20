@@ -101,6 +101,7 @@ export const apiBaseURL = {
     CLOSE_REGISTER: "register-close",
     GET_REGISTER_DETAILS: "get-register-details",
     GET_REGISTER_REPORT_DETAILS: "register-report",
+    RECEIPT_SETTINGS:"receipt-settings"
 };
 
 export const authActionType = {
@@ -157,6 +158,8 @@ export const settingActionType = {
     FETCH_CACHE_CLEAR: "FETCH_CACHE_CLEAR",
     FETCH_MAIL_SETTINGS: "FETCH_MAIL_SETTINGS",
     EDIT_MAIL_SETTINGS: "EDIT_MAIL_SETTINGS",
+    FETCH_RECEIPT_SETTINGS: "FETCH_RECEIPT_SETTINGS",
+    EDIT_RECEIPT_SETTINGS: "EDIT_RECEIPT_SETTINGS",
 };
 
 export const warehouseActionType = {
@@ -766,6 +769,11 @@ export const discountMethodOptions = [
     { id: 1, name: "discount-type.filter.percentage.label" },
     { id: 2, name: "discount-type.filter.fixed.label" },
 ];
+
+export const discountType = {
+    PERCENTAGE: 1,
+    FIXED: 2,
+}
 
 export const quotationStatusOptions = [
     { id: 1, name: "status.filter.sent.label" },

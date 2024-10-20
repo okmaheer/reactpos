@@ -805,7 +805,19 @@
     "product.type.label": "نوع المنتج",
     "product.type.placeholder.label": "اختر نوع المنتج",
     "product.type.input.validation.error": "الرجاء تحديد نوع المنتج",
-    "products.warehouse.title":"مستودع المنتج",
-    "barcode-symbol-uppercase-validation-message":"الرجاء إدخال الأحرف الكبيرة والأرقام فقط للرمز الشريطي Code 39.",
-    "sale.product-qty.limit.validate.message":"لا يمكنك شراء أكثر من الكمية المحددة"
+    "products.warehouse.title": "مستودع المنتج",
+    "barcode-symbol-uppercase-validation-message": "الرجاء إدخال الأحرف الكبيرة والأرقام فقط للرمز الشريطي Code 39.",
+    "sale.product-qty.limit.validate.message": "لا يمكنك شراء أكثر من الكمية المحددة",
+    "receipt-settings.title": "إعدادات الاستلام",
+    "receipt-settings.show-warehouse.label": "إظهار المستودع",
+    "receipt-settings.show-email.label": "إظهار البريد الإلكتروني",
+    "receipt-settings.show-address.label": "إظهار العنوان",
+    "receipt-settings.show-customer.label": "إظهار العميل",
+    "receipt-settings.show-phone.label": "إظهار الهاتف",
+    "receipt-settings.show-tax-discount-shipping.label": "إظهار الضريبة والخصم والشحن",
+    "receipt-settings.success.edit.message": "تم تحديث إعداد الاستلام بنجاح",
+    "receipt-settigns.input.note.validate.label": "الرجاء إدخال الملاحظة",
+    "receipt-settings.show-barcode.label": "إظهار الرمز الشريطي في الإيصال",
+    "receipt-settings.show-note.label":"إظهار الملاحظة",
+    "globally.submit-and-print-button": "إرسال وطباعة"
 }

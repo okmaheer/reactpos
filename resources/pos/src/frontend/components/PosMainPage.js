@@ -41,7 +41,7 @@ import {
     getFormattedMessage,
     getFormattedOptions,
 } from "../../shared/sharedMethod";
-import { paymentMethodOptions, toastType } from "../../constants";
+import { discountType, paymentMethodOptions, toastType } from "../../constants";
 import TopProgressBar from "../../shared/components/loaders/TopProgressBar";
 import CustomerForm from "./customerModel/CustomerForm";
 import HoldListModal from "./holdListModal/HoldListModal";
@@ -90,6 +90,8 @@ const PosMainPage = (props) => {
     const [updateHolList, setUpdateHoldList] = useState(false);
     const [hold_ref_no, setHold_ref_no] = useState("");
     const [cartItemValue, setCartItemValue] = useState({
+        discount_type: discountType.FIXED,    // 0 = fixed, 1 = percentage
+        discount_value: 0,
         discount: 0,
         tax: 0,
         shipping: 0,
@@ -135,7 +137,7 @@ const PosMainPage = (props) => {
     });
 
     //grand total on cart item
-    const discountTotal = subTotal - cartItemValue.discount;
+        const discountTotal = subTotal - cartItemValue.discount;
     const taxTotal = (discountTotal * cartItemValue.tax) / 100;
     const mainTotal = discountTotal + taxTotal;
     const grandTotal = (
@@ -266,8 +268,26 @@ const PosMainPage = (props) => {
                 return;
             }
         }
+
+        let discount = cartItemValue.discount;
+        if (event.target.name == 'discount_value') {
+            if (cartItemValue.discount_type == discountType.FIXED) {
+                discount = value;
+            } else {
+                discount = (Number(subTotal) * Number(value)) / 100;
+            }
+        }
+        if (event.target.name === 'discount_type') {
+            if (value == discountType.FIXED) {
+                discount = cartItemValue.discount_value;
+            } else {
+                discount = (Number(subTotal) * Number(cartItemValue.discount_value)) / 100;
+            }
+        }
+
         setCartItemValue((inputs) => ({
             ...inputs,
+            discount: discount,
             [event.target.name]: value,
         }));
     };
@@ -398,7 +418,7 @@ const PosMainPage = (props) => {
     };
 
     //cash payment method
-    const onCashPayment = (event) => {
+    const onCashPayment = (event,printSlip=false) => {
         event.preventDefault();
         const valid = handleValidation();
         if (valid) {
@@ -411,12 +431,14 @@ const PosMainPage = (props) => {
                     brandId,
                     categoryId,
                     selectedOption,
-                }
+                },printSlip
             );
             // setModalShowPaymentSlip(true);
             setCashPayment(false);
             setPaymentPrint(preparePrintData);
             setCartItemValue({
+                discount_type: discountType.FIXED,
+                discount_value: 0,
                 discount: 0,
                 tax: 0,
                 shipping: 0,
@@ -551,137 +573,141 @@ const PosMainPage = (props) => {
             <Row>
                 <TopProgressBar />
                 <Col lg={5} xxl={4} xs={6} className="pos-left-scs">
-                    <PosHeader
-                        setSelectedCustomerOption={setSelectedCustomerOption}
-                        selectedCustomerOption={selectedCustomerOption}
-                        setSelectedOption={setSelectedOption}
-                        selectedOption={selectedOption}
-                        customerModel={customerModel}
-                        updateCustomer={modalShowCustomer}
-                    />
-                    <div className="left-content custom-card mb-3 p-3">
-                        <div className="main-table overflow-auto">
-                            <Table className="mb-0">
-                                <thead className="position-sticky top-0">
-                                    <tr>
-                                        <th>
-                                            {getFormattedMessage(
-                                                "pos-product.title"
-                                            )}
-                                        </th>
-                                        <th
-                                            className={
-                                                updateProducts &&
-                                                updateProducts.length
-                                                    ? "text-center"
-                                                    : ""
-                                            }
-                                        >
-                                            {getFormattedMessage(
-                                                "pos-qty.title"
-                                            )}
-                                        </th>
-                                        <th>
-                                            {getFormattedMessage(
-                                                "pos-price.title"
-                                            )}
-                                        </th>
-                                        <th colSpan="2">
-                                            {getFormattedMessage(
-                                                "pos-sub-total.title"
-                                            )}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody className="border-0">
-                                    {updateProducts && updateProducts.length ? (
-                                        updateProducts.map(
-                                            (updateProduct, index) => {
-                                                return (
-                                                    <ProductCartList
-                                                        singleProduct={
-                                                            updateProduct
-                                                        }
-                                                        key={index + 1}
-                                                        index={index}
-                                                        posAllProducts={
-                                                            posAllProducts
-                                                        }
-                                                        onClickUpdateItemInCart={
-                                                            onClickUpdateItemInCart
-                                                        }
-                                                        updatedQty={updatedQty}
-                                                        updateCost={updateCost}
-                                                        onDeleteCartItem={
-                                                            onDeleteCartItem
-                                                        }
-                                                        quantity={quantity}
-                                                        frontSetting={
-                                                            frontSetting
-                                                        }
-                                                        newCost={newCost}
-                                                        allConfigData={
-                                                            allConfigData
-                                                        }
-                                                        setUpdateProducts={
-                                                            setUpdateProducts
-                                                        }
-                                                    />
-                                                );
-                                            }
-                                        )
-                                    ) : (
+                    <div className="d-flex flex-column h-100">
+                        <PosHeader
+                            setSelectedCustomerOption={setSelectedCustomerOption}
+                            selectedCustomerOption={selectedCustomerOption}
+                            setSelectedOption={setSelectedOption}
+                            selectedOption={selectedOption}
+                            customerModel={customerModel}
+                            updateCustomer={modalShowCustomer}
+                        />
+                        <div className="left-content custom-card mb-3 p-3 d-flex flex-column justify-content-between">
+                            <div className="main-table overflow-auto">
+                                <Table className="mb-0">
+                                    <thead className="position-sticky top-0">
                                         <tr>
-                                            <td
-                                                colSpan={4}
-                                                className="custom-text-center text-gray-900 fw-bold py-5"
+                                            <th>
+                                                {getFormattedMessage(
+                                                    "pos-product.title"
+                                                )}
+                                            </th>
+                                            <th
+                                                className={
+                                                    updateProducts &&
+                                                        updateProducts.length
+                                                        ? "text-center"
+                                                        : ""
+                                                }
                                             >
                                                 {getFormattedMessage(
-                                                    "sale.product.table.no-data.label"
+                                                    "pos-qty.title"
                                                 )}
-                                            </td>
+                                            </th>
+                                            <th>
+                                                {getFormattedMessage(
+                                                    "pos-price.title"
+                                                )}
+                                            </th>
+                                            <th colSpan="2">
+                                                {getFormattedMessage(
+                                                    "pos-sub-total.title"
+                                                )}
+                                            </th>
                                         </tr>
-                                    )}
-                                </tbody>
-                            </Table>
+                                    </thead>
+                                    <tbody className="border-0">
+                                        {updateProducts && updateProducts.length ? (
+                                            updateProducts.map(
+                                                (updateProduct, index) => {
+                                                    return (
+                                                        <ProductCartList
+                                                            singleProduct={
+                                                                updateProduct
+                                                            }
+                                                            key={index + 1}
+                                                            index={index}
+                                                            posAllProducts={
+                                                                posAllProducts
+                                                            }
+                                                            onClickUpdateItemInCart={
+                                                                onClickUpdateItemInCart
+                                                            }
+                                                            updatedQty={updatedQty}
+                                                            updateCost={updateCost}
+                                                            onDeleteCartItem={
+                                                                onDeleteCartItem
+                                                            }
+                                                            quantity={quantity}
+                                                            frontSetting={
+                                                                frontSetting
+                                                            }
+                                                            newCost={newCost}
+                                                            allConfigData={
+                                                                allConfigData
+                                                            }
+                                                            setUpdateProducts={
+                                                                setUpdateProducts
+                                                            }
+                                                        />
+                                                    );
+                                                }
+                                            )
+                                        ) : (
+                                            <tr>
+                                                <td
+                                                    colSpan={4}
+                                                    className="custom-text-center text-gray-900 fw-bold py-5"
+                                                >
+                                                    {getFormattedMessage(
+                                                        "sale.product.table.no-data.label"
+                                                    )}
+                                                </td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </Table>
+                            </div>
+                            <div>
+                                <CartItemMainCalculation
+                                    totalQty={totalQty}
+                                    subTotal={subTotal}
+                                    grandTotal={grandTotal}
+                                    cartItemValue={cartItemValue}
+                                    onChangeCart={onChangeCart}
+                                    allConfigData={allConfigData}
+                                    frontSetting={frontSetting}
+                                    onChangeTaxCart={onChangeTaxCart}
+                                />
+                                <PaymentButton
+                                    updateProducts={updateProducts}
+                                    updateCart={addToCarts}
+                                    setUpdateProducts={setUpdateProducts}
+                                    setCartItemValue={setCartItemValue}
+                                    setCashPayment={setCashPayment}
+                                    cartItemValue={cartItemValue}
+                                    grandTotal={grandTotal}
+                                    subTotal={subTotal}
+                                    selectedOption={selectedOption}
+                                    cashPaymentValue={cashPaymentValue}
+                                    holdListId={holdListId}
+                                    setHoldListValue={setHoldListValue}
+                                    selectedCustomerOption={selectedCustomerOption}
+                                    setUpdateHoldList={setUpdateHoldList}
+                                />
+                            </div>
                         </div>
-                        <CartItemMainCalculation
-                            totalQty={totalQty}
-                            subTotal={subTotal}
-                            grandTotal={grandTotal}
-                            cartItemValue={cartItemValue}
-                            onChangeCart={onChangeCart}
-                            allConfigData={allConfigData}
-                            frontSetting={frontSetting}
-                            onChangeTaxCart={onChangeTaxCart}
-                        />
-                        <PaymentButton
-                            updateProducts={updateProducts}
-                            updateCart={addToCarts}
-                            setUpdateProducts={setUpdateProducts}
-                            setCartItemValue={setCartItemValue}
-                            setCashPayment={setCashPayment}
-                            cartItemValue={cartItemValue}
-                            grandTotal={grandTotal}
-                            subTotal={subTotal}
-                            selectedOption={selectedOption}
-                            cashPaymentValue={cashPaymentValue}
-                            holdListId={holdListId}
-                            setHoldListValue={setHoldListValue}
-                            selectedCustomerOption={selectedCustomerOption}
-                            setUpdateHoldList={setUpdateHoldList}
-                        />
                     </div>
                 </Col>
                 <Col lg={7} xxl={8} xs={6} className="ps-lg-0 pos-right-scs">
-                    <div className="right-content mb-3">
+                    <div className="right-content mb-3 d-flex flex-column h-100">
                         <div className="d-sm-flex align-items-center flex-xxl-nowrap flex-wrap">
                             <ProductSearchbar
                                 customCart={customCart}
                                 setUpdateProducts={setUpdateProducts}
                                 updateProducts={updateProducts}
-                                // handleOnSelect={handleOnSelect} handleOnSearch={handleOnSearch}
-                                // searchString={searchString}
+                            // handleOnSelect={handleOnSelect} handleOnSearch={handleOnSearch}
+                            // searchString={searchString}
                             />
                             <HeaderAllButton
                                 holdListData={holdListData}
@@ -695,7 +721,7 @@ const PosMainPage = (props) => {
                                 }
                             />
                         </div>
-                        <div className="custom-card h-100">
+                        <div className="custom-card h-100 mb-3">
                             <div className="p-3">
                                 <Category
                                     setCategory={setCategory}

@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router';
 
-const PosRegisterOpenAlertModel = ( { showROAlertModel, setShowROAlertModel } ) => {
+const PosRegisterOpenAlertModel = ( { showROAlertModel, setShowROAlertModel,redirectTo } ) => {
 
     const navigate = useNavigate()
 
@@ -31,7 +31,7 @@ const PosRegisterOpenAlertModel = ( { showROAlertModel, setShowROAlertModel } ) 
                         className='px-11 py-3'
                         onClick={() => {
                             setShowROAlertModel( false )
-                            navigate( "/app/dashboard" )
+                            navigate( redirectTo )
                         }}
                     >{getFormattedMessage('yes.modal.title')}</Button>
                     <Button variant='danger' className='px-11 py-3' onClick={() => setShowROAlertModel( false )}>{getFormattedMessage('no.modal.title')}</Button>

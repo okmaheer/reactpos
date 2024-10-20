@@ -2,7 +2,7 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "keywords": [
         "framework",
         "laravel"

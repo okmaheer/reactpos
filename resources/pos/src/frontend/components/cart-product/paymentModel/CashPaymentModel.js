@@ -4,6 +4,7 @@ import {
     currencySymbolHandling,
     getFormattedMessage,
     getFormattedOptions,
+    numFloatValidate,
     numValidate,
     placeholderText,
 } from "../../../../shared/sharedMethod";
@@ -86,9 +87,9 @@ const CashPaymentModel = (props) => {
                                     :{" "}
                                 </Form.Label>
                                 <Form.Control
-                                    type="number"
+                                    type="text"
                                     min={0}
-                                    onKeyPress={(event) => numValidate(event)}
+                                    onKeyPress={(event) => numFloatValidate(event)}
                                     name="received_amount"
                                     autoComplete="off"
                                     className="form-control-solid"
@@ -346,6 +347,33 @@ const CashPaymentModel = (props) => {
                     }}
                 >
                     {getFormattedMessage("globally.submit-btn")}
+                </button>
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={(event) => {
+                        if (cashPaymentValue.received_amount !== undefined) {
+                            if (
+                                parseInt(cashPaymentValue.received_amount) <
+                                parseInt(grandTotal)
+                            ) {
+                                dispatch(
+                                    addToast({
+                                        text: getFormattedMessage(
+                                            "purchase.less.recieving.ammout.error"
+                                        ),
+                                        type: toastType.ERROR,
+                                    })
+                                );
+                            } else {
+                                onCashPayment(event,true);
+                            }
+                        } else {
+                            onCashPayment(event,true);
+                        }
+                    }}
+                >
+                    {getFormattedMessage("globally.submit-and-print-btn")}
                 </button>
                 <button
                     type="button"

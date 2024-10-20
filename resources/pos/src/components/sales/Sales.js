@@ -104,7 +104,7 @@ const Sales = (props) => {
         sales.length >= 0 &&
         sales.map((sale) => ({
             date: getFormattedDate(
-                sale.attributes.date,
+                sale.attributes.created_at,
                 allConfigData && allConfigData
             ),
             // date_for_payment: sale.attributes.date,

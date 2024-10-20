@@ -177,6 +177,8 @@ const AsideTopSubMenuItem = (props) => {
                                         location.pathname ===
                                             mainItems.mailSettingsPath ||
                                         location.pathname ===
+                                            mainItems.receiptSettingsPath ||
+                                        location.pathname ===
                                             mainItems.profitLossReportPath ||
                                         location.pathname.includes(
                                             mainItems.to

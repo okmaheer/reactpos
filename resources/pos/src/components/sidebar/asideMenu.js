@@ -423,6 +423,8 @@ const AsideMenu = (props) => {
                                                 location.pathname ===
                                                     mainItems.prefixesPath ||
                                                 location.pathname ===
+                                                    mainItems.receiptSettingsPath ||
+                                                location.pathname ===
                                                     mainItems.profitLossReportPath ||
                                                 location.pathname.includes(
                                                     mainItems.to

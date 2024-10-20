@@ -104,16 +104,16 @@ const ProductSearchbar = (props) => {
             let pushArray = [...customCart];
             let newProduct = pushArray.find(
                 (element) =>
-                    element.code === codeSearch[0] ||
-                    element.name === nameSearch[0]
+                    element.code === codeSearch[0]
+                    // || element.name === nameSearch[0]
             );
             if (
                 updateProducts.filter(
                     (item) =>
                         item.code === code ||
                         item.name === code ||
-                        item.code === code.code ||
-                        item.name === code.name
+                        item.code === code.code
+                        // || item.name === code.name
                 ).length > 0
             ) {
                 if (filterQty >= singleProduct[0]) {
@@ -130,8 +130,9 @@ const ProductSearchbar = (props) => {
                         updateProducts.map((item) =>
                             (item.code === code ||
                                 item.name === code ||
-                                item.code === code.code ||
-                                item.name === code.name) &&
+                                item.code === code.code
+                                // || item.name === code.name
+                            ) &&
                             singleProduct[0] > item.quantity
                                 ? { ...item, quantity: item.quantity + 1 }
                                 : item

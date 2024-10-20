@@ -20,6 +20,26 @@ export const numValidate = (event) => {
     }
 };
 
+export const numWithSpaceValidate = (event) => {
+        if (!/[0-9]/.test(event.key) && event.key !== ' ') {
+            event.preventDefault();
+        }
+};
+
+
+export const numFloatValidate = (event) => {
+    const key = event.key;
+    const value = event.target.value;
+    if (/[0-9]/.test(key)) {
+        return;
+    }
+    if (key === '.' && !value.includes('.')) {
+        return;
+    }
+    event.preventDefault();
+};
+
+
 export const getFormattedMessage = (id) => {
     return <FormattedMessage id={id} defaultMessgae={id} />;
 };

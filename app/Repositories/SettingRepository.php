@@ -69,7 +69,7 @@ class SettingRepository extends BaseRepository
                 'twillo_token', 'twillo_from', 'smtp_host', 'smtp_port', 'smtp_username', 'smtp_password',
                 'smtp_Encryption', 'address', 'show_version_on_footer', 'country', 'state', 'city', 'postcode',
                 'date_format', 'purchase_code', 'purchase_return_code', 'sale_code', 'sale_return_code', 'expense_code',
-                'is_currency_right', 'show_logo_in_receipt', 'show_app_name_in_sidebar'
+                'is_currency_right', 'show_logo_in_receipt', 'show_app_name_in_sidebar',
             ]);
 
             foreach ($settingInputArray as $key => $value) {
@@ -84,6 +84,35 @@ class SettingRepository extends BaseRepository
                 }
             }
             $input['logo'] = Setting::where('key', '=', 'logo')->first()->logo;
+            DB::commit();
+
+            return $input;
+        } catch (Exception $exception) {
+            DB::rollBack();
+            throw new UnprocessableEntityHttpException($exception->getMessage());
+        }
+    }
+
+    public function updateReceiptSetting($input)
+    {
+        try {
+            DB::beginTransaction();
+
+            $settingInputArray = Arr::only($input, ['show_note','show_phone','show_customer','show_address','show_email','show_warehouse','show_tax_discount_shipping','show_logo_in_receipt','show_barcode_in_receipt','notes']);
+
+            foreach ($settingInputArray as $key => $value) {
+                $setting = Setting::where('key' ,$key)->first();
+                if($setting){
+                    $setting->update(['value' => $value]);
+                }
+                else
+                {
+                    $setting = new Setting();
+                    $setting->key = $key;
+                    $setting->value = $value;
+                    $setting->save();
+                }
+            }
             DB::commit();
 
             return $input;

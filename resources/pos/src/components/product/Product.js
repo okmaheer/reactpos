@@ -86,13 +86,18 @@ const Product = (props) => {
             allConfigData,
             currencySymbol,
             product_price
-        )
-    }
+        );
+    };
     const itemsValue =
         currencySymbol &&
         products.length >= 0 &&
         products.map((product) => {
-            let product_price = product.attributes.min_price == product.attributes.max_price ? formattedPrice(product.attributes.min_price) : formattedPrice(product.attributes.min_price) + " - " + formattedPrice(product.attributes.max_price);
+            let product_price =
+                product.attributes.min_price == product.attributes.max_price
+                    ? formattedPrice(product.attributes.min_price)
+                    : formattedPrice(product.attributes.min_price) +
+                      " - " +
+                      formattedPrice(product.attributes.max_price);
             return {
                 name: product?.attributes.name,
                 code: product?.attributes.code,
@@ -101,12 +106,22 @@ const Product = (props) => {
                     allConfigData && allConfigData
                 ),
                 time: moment(product?.attributes.created_at).format("LT"),
-                brand_name: product?.attributes.products ? product?.attributes.products[0].brand_name : "",
+                brand_name:
+                    product?.attributes.products &&
+                    product?.attributes.products[0]?.brand_name
+                        ? product?.attributes.products[0]?.brand_name
+                        : "",
                 product_price: product_price,
                 product_unit: product?.attributes.product_unit?.name
                     ? product?.attributes.product_unit?.name
                     : "N/A",
-                in_stock: product.attributes.products?.reduce((sum, product) => sum + product?.stock?.quantity ? product.stock.quantity : 0, 0),
+                in_stock: product.attributes.products?.reduce(
+                    (sum, product) =>
+                        sum + product?.stock?.quantity
+                            ? product.stock.quantity
+                            : 0,
+                    0
+                ),
                 images: product?.attributes.images,
                 id: product.id,
                 currency: currencySymbol,
@@ -183,8 +198,7 @@ const Product = (props) => {
         {
             name: getFormattedMessage("product.table.price.column.label"),
 
-            selector: (row) =>
-                row.product_price
+            selector: (row) => row.product_price,
         },
         {
             name: getFormattedMessage("product.input.product-unit.label"),
@@ -258,10 +272,9 @@ const Product = (props) => {
                 isShowFilterField
                 isUnitFilter
                 title={getFormattedMessage("product.input.product-unit.label")}
-                buttonImport={true}
                 goToImport={handleClose}
-                importBtnTitle={"product.import.title"}
-                isExport
+                isExportDropdown={true}
+                isImportDropdown={true}
                 onExcelClick={onExcelClick}
             />
             <DeleteMainProduct

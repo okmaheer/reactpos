@@ -149,12 +149,15 @@
 }
 
 .left-content {
-  height: 88.95vh !important;
+  height: 100% !important;
 }
 .left-content .main-table {
-  height: auto;
-  min-height: calc(100vh - 354px);
-  max-height: 470px;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .left-content .main-table {
+    min-height: 330px;
+  }
 }
 .left-content .main-table table tr th {
   color: #212529;

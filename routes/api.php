@@ -228,6 +228,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('states/{id}', [SettingAPIController::class, 'getStates']);
     Route::get('mail-settings', [SettingAPIController::class, 'getMailSettings']);
     Route::post('mail-settings/update', [SettingAPIController::class, 'updateMailSettings']);
+    Route::post('receipt-settings/update', [SettingAPIController::class, 'updateReceiptSetting']);
     //    });
 
     //    Route::middleware('permission:manage_language')->group(function () {

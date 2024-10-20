@@ -804,7 +804,19 @@
     "variation.type.input.name.validate.label": "Por favor, ingrese tipos de variante válidos",
     "variation.select.validation.error.message": "Por favor, seleccione una variante",
     "variation.type.select.validate.error.message": "Por favor, seleccione tipos de variante",
-    "products.warehouse.title":"Almacén de productos",
-    "barcode-symbol-uppercase-validation-message":"Ingrese solo letras mayúsculas y números para el código de barras Código 39.",
-    "sale.product-qty.limit.validate.message":"No puedes comprar más que la cantidad límite."
+    "products.warehouse.title": "Almacén de productos",
+    "barcode-symbol-uppercase-validation-message": "Ingrese solo letras mayúsculas y números para el código de barras Código 39.",
+    "sale.product-qty.limit.validate.message": "No puedes comprar más que la cantidad límite.",
+    "receipt-settings.title": "Configuración de recibo",
+    "receipt-settings.show-warehouse.label": "Mostrar almacén",
+    "receipt-settings.show-email.label": "Mostrar correo electrónico",
+    "receipt-settings.show-address.label": "Mostrar dirección",
+    "receipt-settings.show-customer.label": "Mostrar cliente",
+    "receipt-settings.show-phone.label": "Mostrar teléfono",
+    "receipt-settings.show-tax-discount-shipping.label": "Mostrar impuestos, descuento y envío",
+    "receipt-settings.success.edit.message": "Configuración del recibo actualizada correctamente",
+    "receipt-settigns.input.note.validate.label": "Por favor, introduzca la nota",
+    "receipt-settings.show-barcode.label":"Mostrar código de barras en el recibo",
+    "receipt-settings.show-note.label":"Mostrar nota",
+    "globally.submit-and-print-button":"Enviar e imprimir"
 }

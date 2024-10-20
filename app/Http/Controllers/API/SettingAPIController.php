@@ -100,4 +100,12 @@ class SettingAPIController extends AppBaseController
 
         return $this->sendSuccess('Mail Settings Save Successfully');
     }
+
+    public function updateReceiptSetting(Request $request)
+    {
+        $settings = $this->settingRepository->updateReceiptSetting($request->all());
+
+        return $this->sendResponse(new SettingResource(['type' => 'settings', 'attributes' => $settings]),
+            'Setting data updated successfully');
+    }
 }

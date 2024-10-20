@@ -813,7 +813,19 @@
     "variation.type.input.name.validate.label": "請輸入有效的變化類型",
     "variation.select.validation.error.message": "請選擇一種變化",
     "variation.type.select.validate.error.message": "請選擇變化類型",
-    "products.warehouse.title":"產品倉庫",
-    "barcode-symbol-uppercase-validation-message":"請僅輸入 Code 39 條碼的大寫字母和數字",
-    "sale.product-qty.limit.validate.message":"您不能購買超過限制數量"
+    "products.warehouse.title": "產品倉庫",
+    "barcode-symbol-uppercase-validation-message": "請僅輸入 Code 39 條碼的大寫字母和數字",
+    "sale.product-qty.limit.validate.message": "您不能購買超過限制數量",
+    "receipt-settings.title": "收據設定",
+    "receipt-settings.show-warehouse.label": "顯示倉庫",
+    "receipt-settings.show-email.label": "顯示電子郵件",
+    "receipt-settings.show-address.label": "顯示位址",
+    "receipt-settings.show-customer.label": "顯示客戶",
+    "receipt-settings.show-phone.label": "顯示電話",
+    "receipt-settings.show-tax-discount-shipping.label": "顯示稅費、折扣和運費",
+    "receipt-settings.success.edit.message": "收據設定更新成功",
+    "receipt-settigns.input.note.validate.label": "請輸入備註",
+    "receipt-settings.show-barcode.label":"在收據中顯示條碼",
+    "receipt-settings.show-note.label":"顯示備註",
+    "globally.submit-and-print-button":"提交並列印"
 }

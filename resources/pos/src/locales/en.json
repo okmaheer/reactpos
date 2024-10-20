@@ -815,5 +815,17 @@
     "product.type.input.validation.error": "Please select product type",
     "products.warehouse.title":"Product Warehouse",
     "barcode-symbol-uppercase-validation-message":"Please enter only uppercase letters and numbers for Code 39 Barcode Symbology.",
-    "sale.product-qty.limit.validate.message":"You can't buy more than limit quantity"
+    "sale.product-qty.limit.validate.message":"You can't buy more than limit quantity",
+    "receipt-settings.title": "Receipt Settings",
+    "receipt-settings.show-warehouse.label":"Show Warehouse",
+    "receipt-settings.show-email.label":"Show Email",
+    "receipt-settings.show-address.label":"Show Address",
+    "receipt-settings.show-customer.label":"Show Customer",
+    "receipt-settings.show-phone.label":"Show Phone",
+    "receipt-settings.show-tax-discount-shipping.label":"Show Tax & Discount & Shipping",
+    "receipt-settings.success.edit.message": "Receipt setting updated successfully",
+    "receipt-settigns.input.note.validate.label":"Please enter note",
+    "receipt-settings.show-barcode.label":"Show barcode in receipt",
+    "receipt-settings.show-note.label":"Show note",
+    "globally.submit-and-print-btn":"Submit & Print"
 }

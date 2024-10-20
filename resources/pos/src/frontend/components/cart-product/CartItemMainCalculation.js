@@ -8,6 +8,7 @@ import {
     numValidate,
     placeholderText,
 } from "../../../shared/sharedMethod";
+import { discountType } from "../../../constants";
 
 const CartItemMainCalculation = (props) => {
     const {
@@ -50,6 +51,34 @@ const CartItemMainCalculation = (props) => {
                             </InputGroup.Text>
                         </InputGroup>
                     </Form.Group>
+                    <Form.Group className="calculation__filed-grp mb-2" controlId="discountType">
+                        <div className="d-flex flex-lg-nowrap flex-wrap gap-3">
+                            <Form.Label className="mb-0">{getFormattedMessage("globally.detail.discount")}</Form.Label>
+                            <Form.Group className="d-flex flex-wrap gap-2">
+                                <Form.Check
+                                    type="radio"
+                                    id="fixed"
+                                    name="discount_type"
+                                    label="Fixed"
+                                    onChange={(e) => onChangeCart(e)}
+                                    value={discountType.FIXED}
+                                    checked={
+                                        cartItemValue.discount_type == discountType.FIXED
+                                    }
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    id="percentage"
+                                    name="discount_type"
+                                    label="Percentage"
+                                    onChange={(e) => onChangeCart(e)}
+                                    value={discountType.PERCENTAGE}
+                                    className="me-md-2"
+                                    checked={
+                                        cartItemValue.discount_type == discountType.PERCENTAGE} />
+                            </Form.Group>
+                        </div>
+                    </Form.Group>
                     <Form.Group className="calculation__filed-grp mb-2">
                         <InputGroup>
                             <FormControl
@@ -58,12 +87,12 @@ const CartItemMainCalculation = (props) => {
                                 className="rounded-1 pe-8"
                                 onChange={(e) => onChangeCart(e)}
                                 value={
-                                    cartItemValue.discount === 0
+                                    cartItemValue.discount_value === 0
                                         ? ""
-                                        : cartItemValue.discount
+                                        : cartItemValue.discount_value
                                 }
                                 onKeyPress={(event) => decimalValidate(event)}
-                                name="discount"
+                                name="discount_value"
                                 min="0"
                                 step=".01"
                                 placeholder={placeholderText(
@@ -71,7 +100,7 @@ const CartItemMainCalculation = (props) => {
                                 )}
                             />
                             <InputGroup.Text className="position-absolute top-0 bottom-0 end-0 bg-transparent border-0">
-                                {frontSetting.value &&
+                                {cartItemValue.discount_type == discountType.PERCENTAGE ? '%' : frontSetting.value &&
                                     frontSetting.value.currency_symbol}
                             </InputGroup.Text>
                         </InputGroup>
@@ -113,7 +142,7 @@ const CartItemMainCalculation = (props) => {
                         {currencySymbolHandling(
                             allConfigData,
                             frontSetting.value &&
-                                frontSetting.value.currency_symbol,
+                            frontSetting.value.currency_symbol,
                             subTotal ? subTotal : "0.00"
                         )}
                     </h4>
@@ -122,7 +151,7 @@ const CartItemMainCalculation = (props) => {
                         {currencySymbolHandling(
                             allConfigData,
                             frontSetting.value &&
-                                frontSetting.value.currency_symbol,
+                            frontSetting.value.currency_symbol,
                             grandTotal ? grandTotal : "0.00"
                         )}
                     </h2>

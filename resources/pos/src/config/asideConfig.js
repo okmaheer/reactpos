@@ -512,12 +512,14 @@ export default [
         to: "/app/settings",
         prefixesPath: "/app/prefixes",
         mailSettingsPath: "/app/mail-settings",
+        receiptSettingsPath: "/app/receipt-settings",
         class: "d-flex",
         isSamePrefix: "true",
         permission: Permissions.MANAGE_SETTING,
         subTitles: [
             { title: "prefix.title" },
             { title: "mail-settings.title" },
+            { title: "receipt-settings.title" },
         ],
         items: [
             {
@@ -531,6 +533,10 @@ export default [
             {
                 title: getFormattedMessage("mail-settings.title"),
                 to: "/app/mail-settings",
+            },
+            {
+                title: getFormattedMessage("receipt-settings.title"),
+                to: "/app/receipt-settings",
             },
         ],
     },

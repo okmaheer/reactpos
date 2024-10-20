@@ -68,7 +68,7 @@ class MainProductAPIController extends AppBaseController
         return new MainProductResource($mainProduct);
     }
 
-    public function store(CreateMainProductRequest $request): MainProductResource
+    public function store(CreateMainProductRequest $request)
     {
         $input = $request->all();
 

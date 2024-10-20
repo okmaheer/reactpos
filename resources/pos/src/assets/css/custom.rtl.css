@@ -2550,6 +2550,89 @@ div .rdt_Pagination div:first-of-type svg {
   height: -webkit-fill-available;
 }
 
+@keyframes load {
+  from {
+    right: -150px;
+  }
+  to {
+    right: 100%;
+  }
+}
+.maindata {
+  width: 100%;
+  padding: 25px;
+}
+
+.rowdata {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dark-theme .skeleton {
+  background-color: #3a3a4f !important;
+}
+.dark-theme .skeleton::before {
+  background: linear-gradient(to left, transparent 0%, #7c7f87 50%, transparent 100%);
+}
+.dark-theme .animated-background {
+  background: linear-gradient(to left, #3a3a4f 8%, #7c7f87 18%, #3a3a4f 33%);
+}
+.dark-theme .rdt_Table > :nth-child(1) {
+  background-color: #212125 !important;
+}
+
+.skeleton {
+  background: #e1e1e1;
+  height: 133px;
+  position: relative;
+  overflow: hidden;
+  width: 15%;
+  margin: 1% 0%;
+}
+.skeleton::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -150px;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(to left, transparent 0%, #e8e8e8 50%, transparent 100%);
+  animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -800px 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}
+.animated-background {
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background-color: #f6f7f8;
+  background: linear-gradient(to left, #eeeeee 8%, #bbbbbb 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+  height: 50px !important;
+  width: 100%;
+  position: relative;
+}
+
+.background-masker {
+  background-color: #fff;
+  position: absolute;
+}
+
 .dropdown-menu {
   position: absolute !important;
   padding: 1rem 0 !important;

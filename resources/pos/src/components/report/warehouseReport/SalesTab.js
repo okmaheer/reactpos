@@ -43,6 +43,7 @@ const SalesTab = (props) => {
             status: sale.attributes.status,
             payment_status: sale.attributes.payment_status,
             grand_total: sale.attributes.grand_total,
+            due_amount: sale.attributes.due_amount,
             paid_amount: sale.attributes.paid_amount
                 ? sale.attributes.paid_amount
                 : (0.0).toFixed(2),
@@ -142,7 +143,7 @@ const SalesTab = (props) => {
         {
             name: getFormattedMessage("dashboard.recentSales.due.label"),
             selector: (row) =>
-                currencySymbolHandling(allConfigData, row.currency, "0.00"),
+               currencySymbolHandling(allConfigData, row.currency, parseFloat(row.due_amount)),
             sortField: "due",
             // sortable: true,
         },
