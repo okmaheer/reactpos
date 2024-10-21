@@ -49,6 +49,7 @@ class ProductCategory extends BaseModel implements HasMedia, JsonResourceful
 
     protected $fillable = [
         'name',
+        'code',
     ];
 
     public static $rules = [
@@ -78,6 +79,7 @@ class ProductCategory extends BaseModel implements HasMedia, JsonResourceful
     {
         $fields = [
             'name' => $this->name,
+            'code' => $this->code,
             'image' => $this->image_url,
             'products_count' => $this->products()->count(),
         ];

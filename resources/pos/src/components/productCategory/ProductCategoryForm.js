@@ -14,17 +14,19 @@ const ProductCategoryForm = (props) => {
     const innerRef = createRef();
     const [productCategoryValue, setProductCategoryValue] = useState({
         name: singleProductCategory ? singleProductCategory.name : '',
+        code: singleProductCategory ? singleProductCategory.code : '',
         image: singleProductCategory ? singleProductCategory.image : '',
     });
     const [errors, setErrors] = useState({
         name: '',
+        code:'',
     });
     const editImg = singleProductCategory ? singleProductCategory.image : user;
     const newImg = productCategoryValue.image === false ? user : editImg;
     const [imagePreviewUrl, setImagePreviewUrl] = useState(newImg);
     const [selectImg, setSelectImg] = useState(null);
 
-    const disabled = selectImg ? false : singleProductCategory && singleProductCategory.name === productCategoryValue.name.trim();
+    const disabled = selectImg ? false : singleProductCategory && singleProductCategory.name === productCategoryValue.name.trim() &&singleProductCategory.code === productCategoryValue.code.trim();
 
     const handleImageChanges = (e) => {
         e.preventDefault();
@@ -65,6 +67,7 @@ const ProductCategoryForm = (props) => {
     const prepareFormData = (data) => {
         const formData = new FormData();
         formData.append('name', data.name);
+        formData.append('code', data.code);
         if (selectImg) {
             formData.append('image', data.image);
         }
@@ -94,6 +97,7 @@ const ProductCategoryForm = (props) => {
     const clearField = () => {
         setProductCategoryValue({
             name: '',
+            code: '',
             image: ''
         });
         setImagePreviewUrl(user);
@@ -129,6 +133,17 @@ const ProductCategoryForm = (props) => {
                                               onChange={(e) => onChangeInput(e)}
                                               value={productCategoryValue.name}/>
                                 <span className='text-danger d-block fw-400 fs-small mt-2'>{errors['name'] ? errors['name'] : null}</span>
+                        </div>
+                        <div className='col-md-12 mb-5'>
+                                <label
+                                    className='form-label'>{getFormattedMessage('globally.input.code.label')}: </label>
+                                <span className='required'/>
+                                <input type='text' name='code'
+                                              placeholder={placeholderText('globally.input.code.placeholder.label')}
+                                              className='form-control' ref={innerRef} autoComplete='off'
+                                              onChange={(e) => onChangeInput(e)}
+                                              value={productCategoryValue.code}/>
+                                <span className='text-danger d-block fw-400 fs-small mt-2'>{errors['code'] ? errors['code'] : null}</span>
                         </div>
                         <ImagePicker imagePreviewUrl={imagePreviewUrl} handleImageChange={handleImageChanges}
                                      user={user} imageTitle={placeholderText('globally.input.change-logo.tooltip')}/>

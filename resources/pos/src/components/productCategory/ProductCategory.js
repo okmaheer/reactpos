@@ -42,6 +42,7 @@ const ProductCategory = (props) => {
 
     const itemsValue = productCategories.length >= 0 && productCategories.map(product => ({
         name: product.attributes.name,
+        code: product.attributes.code,
         image: product.attributes.image,
         products_count: product.attributes.products_count,
         id: product.id,
@@ -63,6 +64,22 @@ const ProductCategory = (props) => {
                         </div>
                         <div className='d-flex flex-column'>
                             <span>{row.name}</span>
+                        </div>
+                    </div>
+                )
+            },
+        },
+        {
+            name: getFormattedMessage('product-category.code'),
+            selector: row => row.code,
+            sortField: 'code',
+            sortable: true,
+            cell: row => {
+                return (
+                    <div className='d-flex align-items-center'>
+                       
+                        <div className='d-flex flex-column'>
+                            <span>{row.code}</span>
                         </div>
                     </div>
                 )
