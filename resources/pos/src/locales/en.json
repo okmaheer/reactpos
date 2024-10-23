@@ -162,7 +162,7 @@
     "globally.detail.shipping": "Shipping",
     "globally.detail.grand.total": "Grand Total",
     "globally.detail.paid": "Paid",
-    "globally.search.field.label": "Search Product by Code Name",
+    "globally.search.field.label": "Scan/Search Product by Code Or Name",
     "globally.detail.due": "Due",
     "globally.status.validate.label": "Please select status",
     "globally.payment.status.validate.label": "Please select payment status",
@@ -830,5 +830,7 @@
     "receipt-settigns.input.note.validate.label":"Please enter note",
     "receipt-settings.show-barcode.label":"Show barcode in receipt",
     "receipt-settings.show-note.label":"Show note",
-    "globally.submit-and-print-btn":"Submit & Print"
+    "globally.submit-and-print-btn":"Submit & Print",
+    "settings.select.language.urdu.label":"Urdu"
+
 }

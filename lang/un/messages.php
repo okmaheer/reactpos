@@ -1,0 +1,102 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | All Titles and static string in blade files - English Language
+    |--------------------------------------------------------------------------
+    |
+    */
+    //menu.blade keys
+
+    'pdf' => [
+        'date' => 'تاریخ',
+        'number' => 'نمبر',
+        'payment_status' => 'ادائیگی کی حیثیت',
+        'customer_info' => 'گاہک کی معلومات',
+        'name' => 'نام',
+        'phone' => 'فون',
+        'address' => 'پتہ',
+        'email' => 'ای میل',
+        'company_info' => 'کمپنی کی معلومات',
+        'product' => 'مصنوع',
+        'unit_price' => 'یونٹ قیمت',
+        'quantity' => 'مقدار',
+        'discount' => 'رعایت',
+        'tax' => 'ٹیکس',
+        'total' => 'کل',
+        'order_tax' => 'آرڈر ٹیکس',
+        'shipping' => 'شپنگ',
+        'paid_amount' => 'ادا کی گئی رقم',
+        'signature' => 'دستخط',
+        'status' => 'حیثیت',
+        'supplier_info' => 'سپلائر کی معلومات',
+        'unit_cost' => 'یونٹ لاگت',
+        'customer' => 'گاہک',
+        'total_sales' => 'کل فروخت',
+        'total_amount' => 'کل رقم',
+        'total_paid' => 'کل ادا شدہ',
+        'total_sale_due' => 'کل واجب الادا فروخت',
+        'reference' => 'حوالہ',
+        'due_amount' => 'واجب الادا رقم',
+        'customer_pdf' => 'گاہک پی ڈی ایف',
+        'customer_sales_pdf' => 'گاہک فروخت پی ڈی ایف',
+        'sale_list' => 'فروخت کی فہرست',
+        'customer_name' => 'گاہک کا نام',
+        'customer_quotations_pdf' => 'گاہک کوٹیشن پی ڈی ایف',
+        'quotation_list' => 'کوٹیشن کی فہرست',
+        'customer_returns_pdf' => 'گاہک کی واپسی پی ڈی ایف',
+        'return_list' => 'واپسی کی فہرست',
+        'customer_payments_pdf' => 'گاہک ادائیگیاں پی ڈی ایف',
+        'payment_list' => 'ادائیگی کی فہرست',
+        'received_amount' => 'وصول شدہ رقم',
+        'payment_type' => 'ادائیگی کی قسم',
+        'sale_reference' => 'فروخت حوالہ',
+        'top_customers_list' => 'بہترین گاہکوں کی فہرست',
+        'top_customers_pdf' => 'بہترین گاہک پی ڈی ایف',
+        'supplier' => 'سپلائر',
+        'warehouse' => 'گودام',
+        'amount' => 'رقم',
+        'category' => 'زمرہ',
+        'code' => 'کوڈ',
+        'brand' => 'برانڈ',
+        'price' => 'قیمت',
+        'product_unit' => 'مصنوع کی اکائی',
+        'in_stock' => 'اسٹاک میں',
+        'created_on' => 'تاریخ تخلیق',
+        'client' => 'کلائنٹ',
+        'sub_total' => 'ذیلی کل',
+        'paid' => 'ادا شدہ',
+        'due' => 'واجب الادا',
+        'cost' => 'لاگت',
+        'current_stock' => 'موجودہ اسٹاک',
+        'product_code' => 'مصنوع کوڈ',
+        'product_name' => 'مصنوع کا نام',
+    ],
+
+    'error' => [
+        'product_cant_deleted' => 'مصنوع کو حذف نہیں کیا جا سکتا',
+        'code_taken' => 'کوڈ پہلے ہی لیا جا چکا ہے۔',
+        'default_warehouse_cant_delete' => 'ڈیفالٹ گودام کو حذف نہیں کیا جا سکتا۔',
+        'warehouse_cant_delete' => 'گودام کو حذف نہیں کیا جا سکتا۔',
+        'default_user_cant_delete' => 'ڈیفالٹ صارف کو حذف نہیں کیا جا سکتا۔',
+        'this_action_is_not_allowed_for_default_record' => 'یہ کارروائی ڈیفالٹ ریکارڈ کے لئے اجازت نہیں ہے۔',
+        'invalid_username_password' => 'غلط ای میل یا پاس ورڈ۔',
+        'available_quantity' => 'مقدار دستیاب مقدار سے کم ہونی چاہئے۔',
+        'product_category_can_not_delete' => 'مصنوع کا زمرہ حذف نہیں کیا جا سکتا۔',
+    ],
+
+    'success' => [
+        'cache_clear_successfully' => 'کیش کامیابی کے ساتھ صاف ہو گیا',
+        'product_category_delete' => 'مصنوع کا زمرہ کامیابی کے ساتھ حذف ہو گیا۔',
+    ],
+
+        'heading_discount' => 'رعایت',
+        'heading_total' => 'کل',
+        'sale_pdf' => 'فروخت پی ڈی ایف',
+        'purchase_pdf' => 'خریداری پی ڈی ایف',
+        'Sale_return_pdf' => 'فروخت واپسی پی ڈی ایف',
+        'purchase_return_pdf' => 'خریداری واپسی پی ڈی ایف',
+        'quotation_pdf' => 'کوٹیشن پی ڈی ایف',
+];

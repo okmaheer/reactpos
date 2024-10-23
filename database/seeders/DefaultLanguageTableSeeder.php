@@ -38,6 +38,7 @@ class DefaultLanguageTableSeeder extends Seeder
         Language::create(['name' => 'Arabic', 'iso_code' => 'ar', 'is_default' => false]);
         Language::create(['name' => 'Chinese', 'iso_code' => 'cn', 'is_default' => false]);
         Language::create(['name' => 'English', 'iso_code' => 'en', 'is_default' => true]);
+        Language::create(['name' => 'Urdu', 'iso_code' => 'en', 'is_default' => false]);
         Language::create(['name' => 'French', 'iso_code' => 'fr', 'is_default' => false]);
         Language::create(['name' => 'German', 'iso_code' => 'gr', 'is_default' => false]);
         Language::create(['name' => 'Spanish', 'iso_code' => 'sp', 'is_default' => false]);

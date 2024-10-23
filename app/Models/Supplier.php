@@ -57,11 +57,11 @@ class Supplier extends BaseModel
 
     public static $rules = [
         'name' => 'required',
-        'email' => 'required|email|unique:suppliers',
-        'phone' => 'required|numeric',
-        'country' => 'required',
-        'city' => 'required',
-        'address' => 'required',
+        // 'email' => 'required|email|unique:suppliers',
+        // 'phone' => 'required|numeric',
+        // 'country' => 'required',
+        // 'city' => 'required',
+        // 'address' => 'required',
     ];
 
     public function prepareLinks(): array

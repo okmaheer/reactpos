@@ -2,9 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Brand;
 use App\Models\Currency;
 use App\Models\Customer;
+use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Models\Setting;
+use App\Models\Supplier;
+use App\Models\Unit;
 use App\Models\Warehouse;
 use Illuminate\Database\Seeder;
 
@@ -37,6 +42,21 @@ class SettingTableSeeder extends Seeder
             'code' => ' PKR',
             'symbol' => 'Rs',
         ]);
+        Supplier::create([
+            'name' => ' General Supplier',
+        ]);
+        ProductCategory::create([
+            'name' => ' General Category',
+            'code' => 'HS10299'
+        ]);
+        Brand::create([
+          'name'=>'General Brand'    
+        ]);
+        Unit::create([
+            'name'=>'General Unit',
+            'short_name'=>'General Unit',
+            'base_unit'=>2,    
+          ]);
         $logoUrl = ('images/infycare-logo.png');
 
         if (! keyExist('currency')) {

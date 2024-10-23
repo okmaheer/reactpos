@@ -102,6 +102,7 @@ class LanguageRepository extends BaseRepository
             if (! empty($input['iso_code'])) {
                 // json lang file create
                 File::copy(resource_path('pos/src/locales/en.json'),
+                
                     resource_path('pos/src/locales/'.$input['iso_code'].'.json'));
 
                 // php lang directory and file create
