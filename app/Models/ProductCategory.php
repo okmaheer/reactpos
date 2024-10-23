@@ -16,6 +16,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  *
  * @property int $id
  * @property string $name
+ *  * @property string $code
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read string $image_url
@@ -92,6 +93,8 @@ class ProductCategory extends BaseModel implements HasMedia, JsonResourceful
         $fields = [
             'id' => $this->id,
             'name' => $this->name,
+            'code' => $this->code,
+
         ];
 
         return $fields;
