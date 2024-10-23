@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AddDashboardAndSettingPermissionsSeeder::class);
         $this->call(AddPurchaseAndSalePermissionsSeeder::class);
         $this->call(AddPurchaseReturnAndSaleReturnPermissionsSeeder::class);
+        // $this->call(DefaultBaseUnitSeeder::class);
+
     }
 }
