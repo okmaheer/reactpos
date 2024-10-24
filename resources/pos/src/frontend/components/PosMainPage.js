@@ -572,7 +572,7 @@ const PosMainPage = (props) => {
             {loadRegisterDetailsPrint()}
             <Row>
                 <TopProgressBar />
-                <Col lg={5} xxl={5} xs={6} className="pos-left-scs">
+                <Col lg={5} xxl={6} xs={6} className="pos-left-scs">
                     <div className="d-flex flex-column h-100">
                         <PosHeader
                             setSelectedCustomerOption={setSelectedCustomerOption}
@@ -699,7 +699,7 @@ const PosMainPage = (props) => {
                         </div>
                     </div>
                 </Col>
-                <Col lg={7} xxl={7} xs={6} className="ps-lg-0 pos-right-scs">
+                <Col lg={7} xxl={6} xs={6} className="ps-lg-0 pos-right-scs">
                     <div className="right-content mb-3 d-flex flex-column h-100">
                         <div className="d-sm-flex align-items-center flex-xxl-nowrap flex-wrap">
                             <ProductSearchbar
