@@ -2939,7 +2939,7 @@ textarea.form-control-lg {
   background-size: contain;
   border: none;
   appearance: none;
-  color-adjust: exact;
+  print-color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
   border-radius: 0.25em;

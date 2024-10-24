@@ -60,6 +60,7 @@ export const getFormattedOptions = (options) => {
 export const placeholderText = (label) => {
     const intl = useIntl();
     const placeholderLabel = intl.formatMessage({ id: label });
+    console.log(placeholderLabel)
     return placeholderLabel;
 };
 

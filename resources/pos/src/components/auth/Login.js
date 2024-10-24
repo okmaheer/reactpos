@@ -209,6 +209,21 @@ const Login = () => {
                             </div>
                         </form>
                     </div>
+                    <div className="col-12 text-center align-items-center justify-content-center">
+                       <div className="powered-by" style={{ marginTop: '10px', fontSize: '17px', color: '#333' }}>
+                           <b>Powered by </b> 
+                        </div>
+                        <a href="#" className="image">
+                            <img
+                            style={{ width: '200px', height: '100px' }}
+                            className="image"
+                            src={`${process.env.APP_URL}/images/fbr.png`} // Use APP_URL defined in Laravel
+                            alt="FBR Logo"
+                            />
+                        </a>
+    
+                    </div>
+
                 </div>
             </div>
         </div>

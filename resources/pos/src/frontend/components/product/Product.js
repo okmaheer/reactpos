@@ -137,6 +137,7 @@ const Product = (props) => {
                 onClick={() => addToCart(product)}
             >
                 <Card
+                style={{ width: '150px' }}
                     className={`position-relative h-100 ${
                         isProductExistInCart(product.id) ? "product-active" : ""
                     }`}

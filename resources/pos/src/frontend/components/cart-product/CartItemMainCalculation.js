@@ -105,7 +105,7 @@ const CartItemMainCalculation = (props) => {
                             </InputGroup.Text>
                         </InputGroup>
                     </Form.Group>
-                    <Form.Group className="calculation__filed-grp mb-2">
+                    {/* <Form.Group className="calculation__filed-grp mb-2">
                         <InputGroup>
                             <FormControl
                                 type="text"
@@ -130,7 +130,7 @@ const CartItemMainCalculation = (props) => {
                                     frontSetting.value.currency_symbol}
                             </InputGroup.Text>
                         </InputGroup>
-                    </Form.Group>
+                    </Form.Group> */}
                 </div>
                 <div className="col-6 d-flex flex-column justify-content-center text-end align-items-end mb-2">
                     <h4 className="fs-3 mb-2 custom-big-content text-gray-600">
