@@ -217,7 +217,7 @@ const Login = () => {
                             <img
                             style={{ width: '200px', height: '100px' }}
                             className="image"
-                            src={'http://pos.test/images/fbr.png'}
+                            src={`${process.env.APP_URL}/images/fbr.png`} // Use APP_URL defined in Laravel
                             alt="FBR Logo"
                             />
                         </a>
