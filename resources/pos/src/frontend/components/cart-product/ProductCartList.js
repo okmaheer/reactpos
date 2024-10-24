@@ -31,16 +31,16 @@ const ProductCartList = (props) => {
             updateProducts.map((item) => {
                 if (item.id === singleProduct.id) {
                     if (item.quantity >= totalQty[0]) {
-                        dispatch(
-                            addToast({
-                                text: getFormattedMessage(
-                                    "pos.product-quantity-error.message"
-                                ),
-                                type: toastType.ERROR,
-                            })
-                        );
-                        return item;
-                    } else {
+                    //     dispatch(
+                    //         addToast({
+                    //             text: getFormattedMessage(
+                    //                 "pos.product-quantity-error.message"
+                    //             ),
+                    //             type: toastType.ERROR,
+                    //         })
+                    //     );
+                    //     return item;
+                    // } else {
                         return { ...item, quantity: item.quantity++ + 1 };
                     }
                 } else {
@@ -80,16 +80,16 @@ const ProductCartList = (props) => {
             updateProducts.map((item) => {
                 if (item.id === singleProduct.id) {
                     if (totalQty[0] < Number(e.target.value)) {
-                        dispatch(
-                            addToast({
-                                text: getFormattedMessage(
-                                    "pos.product-quantity-error.message"
-                                ),
-                                type: toastType.ERROR,
-                            })
-                        );
-                        return { ...item, quantity: totalQty[0] };
-                    } else {
+                    //     dispatch(
+                    //         addToast({
+                    //             text: getFormattedMessage(
+                    //                 "pos.product-quantity-error.message"
+                    //             ),
+                    //             type: toastType.ERROR,
+                    //         })
+                    //     );
+                    //     return { ...item, quantity: totalQty[0] };
+                    // } else {
                         return {
                             ...item,
                             quantity: Number(e.target.value),

@@ -23,7 +23,10 @@ const ProductSearch = (props) => {
     const dispatch = useDispatch();
     const filterProducts = isAllProducts && values.warehouse_id ? products.map((item) => ({
         name: item.attributes.name, code: item.attributes.code, id: item.id
-    })) : values.warehouse_id && products.filter((qty) => qty && qty.attributes && qty.attributes.stock && qty.attributes.stock.quantity > 0).map((item) => ({
+    })) : values.warehouse_id && products.filter((qty) => qty && qty.attributes 
+    // && qty.attributes.stock
+    //  && qty.attributes.stock.quantity > 0
+    ).map((item) => ({
         name: item.attributes.name, code: item.attributes.code, id: item.id
     }))
 

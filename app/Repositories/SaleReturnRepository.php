@@ -450,8 +450,8 @@ class SaleReturnRepository extends BaseRepository
                     // remove quantity manage storage
                     $oldProduct = SaleReturnItem::whereId($removeItemId)->first();
                     $productQuantity = ManageStock::whereWarehouseId($input['warehouse_id'])->whereProductId($oldProduct->product_id)->first();
-                    if ($productQuantity && $oldProduct) {
-                        if ($oldProduct->quantity <= $productQuantity->quantity) {
+                    // if ($productQuantity && $oldProduct) {
+                        // if ($oldProduct->quantity <= $productQuantity->quantity) {
                             $stockQuantity = $productQuantity->quantity - $oldProduct->quantity;
                             if ($stockQuantity < 0) {
                                 $stockQuantity = 0;
@@ -459,10 +459,10 @@ class SaleReturnRepository extends BaseRepository
                             $productQuantity->update([
                                 'quantity' => $stockQuantity,
                             ]);
-                        }
-                    } else {
-                        throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
-                    }
+                        // }
+                    // } else {
+                        // throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
+                    // }
                 }
                 SaleReturnItem::whereIn('id', array_values($removeItemIds))->delete();
             }

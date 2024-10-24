@@ -68,32 +68,33 @@ const Product = (props) => {
         if (
             updateProducts.filter((item) => item.id === product.id).length > 0
         ) {
-            if (filterQty >= product.attributes.stock.quantity) {
-                dispatch(
-                    addToast({
-                        text: getFormattedMessage(
-                            "pos.quantity.exceeds.quantity.available.in.stock.message"
-                        ),
-                        type: toastType.ERROR,
-                    })
-                );
-            } else {
+            // if (filterQty >= product.attributes.stock.quantity) {
+            //     dispatch(
+            //         addToast({
+            //             text: getFormattedMessage(
+            //                 "pos.quantity.exceeds.quantity.available.in.stock.message"
+            //             ),
+            //             type: toastType.ERROR,
+            //         })
+            //     );
+            // } else {
                 setUpdateProducts((updateProducts) =>
                     updateProducts.map((item) =>
                         item.id === product.id
                             ? {
                                   ...item,
                                   quantity:
-                                      product.attributes.stock.quantity >
-                                      item.quantity
-                                          ? item.quantity++ + 1
-                                          : null,
+                                    //   product.attributes.stock.quantity >
+                                    //   item.quantity
+                                        //   ?
+                                           item.quantity++ + 1
+                                        //   : null,
                               }
                             : { ...item, id: item.id }
                     )
                 );
                 updateCart(updateProducts, product);
-            }
+            // }
         } else {
             setUpdateProducts((prevSelected) => [...prevSelected, product]);
             updateCart((prevSelected) => [...prevSelected, newProduct]);
@@ -107,8 +108,13 @@ const Product = (props) => {
     const posFilterProduct =
         posAllProducts &&
         posAllProducts.filter(
-            (product) => product.attributes.stock.quantity > 0.0
+            (product) => {
+                return true;
+                // product.attributes.stock.quantity > 0.0
+
+            }
         );
+
     //Cart Item Array
     const loadAllProduct = (product, index) => {
         const findDifferentWords = (str1, str2) => {
@@ -124,8 +130,7 @@ const Product = (props) => {
 
             return [...uniqueWords1, ...uniqueWords2];
         };
-
-        return product.attributes.stock.quantity >= !0.0 ? (
+        return true ? (
             <div
                 className="product-custom-card"
                 key={index}

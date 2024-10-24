@@ -64,19 +64,19 @@ const ProductTableBody = (props) => {
             ? setUpdateProducts((updateProducts) =>
                   updateProducts.map((item) => {
                       if (item.id === singleProduct.id) {
-                          if (item.quantity >= item.sold_quantity) {
-                              dispatch(
-                                  addToast({
-                                      text: getFormattedMessage(
-                                          "sale-return.product-qty.validate.message"
-                                      ),
-                                      type: toastType.ERROR,
-                                  })
-                              );
-                              return item;
-                          } else {
+                        //   if (item.quantity >= item.sold_quantity) {
+                        //       dispatch(
+                        //           addToast({
+                        //               text: getFormattedMessage(
+                        //                   "sale-return.product-qty.validate.message"
+                        //               ),
+                        //               type: toastType.ERROR,
+                        //           })
+                        //       );
+                        //       return item;
+                        //   } else {
                               return { ...item, quantity: item.quantity++ + 1 };
-                          }
+                        //   }
                       } else {
                           return item;
                       }

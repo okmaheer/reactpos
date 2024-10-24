@@ -96,14 +96,17 @@ class SaleRepository extends BaseRepository
 
             foreach ($input['sale_items'] as $saleItem) {
                 $product = ManageStock::whereWarehouseId($input['warehouse_id'])->whereProductId($saleItem['product_id'])->first();
-                if ($product && $product->quantity >= $saleItem['quantity']) {
+                if ($product 
+                // && $product->quantity >= $saleItem['quantity']
+                ) {
                     $totalQuantity = $product->quantity - $saleItem['quantity'];
                     $product->update([
                         'quantity' => $totalQuantity,
                     ]);
-                } else {
-                    throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
                 }
+                // } else {
+                //     throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
+                // }
             }
 
             $mailTemplate = MailTemplate::where('type', MailTemplate::MAIL_TYPE_SALE)->first();
@@ -324,13 +327,13 @@ class SaleRepository extends BaseRepository
                     $sale->saleItems()->create($saleItemArray);
                     $product = ManageStock::whereWarehouseId($input['warehouse_id'])->whereProductId($saleItem['product_id'])->first();
                     if ($product) {
-                        if ($product->quantity >= $saleItem['quantity']) {
+                        // if ($product->quantity >= $saleItem['quantity']) {
                             $product->update([
                                 'quantity' => $product->quantity - $saleItem['quantity'],
                             ]);
-                        } else {
-                            throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
-                        }
+                        // } else {
+                            // throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
+                        // }
                     }
                 }
             }
@@ -393,9 +396,9 @@ class SaleRepository extends BaseRepository
                     }
                 } elseif ($oldItem->quantity < $saleItem['quantity']) {
                     $totalQuantity = $product->quantity - ($saleItem['quantity'] - $oldItem->quantity);
-                    if ($product->quantity < ($saleItem['quantity'] - $oldItem->quantity)) {
-                        throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
-                    }
+                    // if ($product->quantity < ($saleItem['quantity'] - $oldItem->quantity)) {
+                        // throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
+                    // }
                     $product->update([
                         'quantity' => $totalQuantity,
                     ]);

@@ -226,15 +226,15 @@ class PurchaseRepository extends BaseRepository
                     // remove quantity manage storage
                     $oldProduct = PurchaseItem::whereId($removeItemId)->first();
                     $productQuantity = ManageStock::whereWarehouseId($input['warehouse_id'])->whereProductId($oldProduct->product_id)->first();
-                    if ($productQuantity && $oldProduct) {
-                        if ($oldProduct->quantity <= $productQuantity->quantity) {
+                    // if ($productQuantity && $oldProduct) {
+                        // if ($oldProduct->quantity <= $productQuantity->quantity) {
                             $productQuantity->update([
                                 'quantity' => $productQuantity->quantity - $oldProduct->quantity,
                             ]);
-                        }
-                    } else {
-                        throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
-                    }
+                        // }
+                    // } else {
+                        // throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
+                    // }
                 }
                 PurchaseItem::whereIn('id', array_values($removeItemIds))->delete();
             }

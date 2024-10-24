@@ -30,7 +30,7 @@ const ProductSearchbar = (props) => {
         "https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
     );
     const filterProduct = posAllProducts
-        .filter((qty) => qty.attributes.stock.quantity > 0)
+        // .filter((qty) => qty.attributes.stock.quantity > 0)
         .map((item) => ({
             name: item.attributes.name,
             code: item.attributes.code,
@@ -116,16 +116,16 @@ const ProductSearchbar = (props) => {
                         // || item.name === code.name
                 ).length > 0
             ) {
-                if (filterQty >= singleProduct[0]) {
-                    dispatch(
-                        addToast({
-                            text: getFormattedMessage(
-                                "pos.quantity.exceeds.quantity.available.in.stock.message"
-                            ),
-                            type: toastType.ERROR,
-                        })
-                    );
-                } else {
+                // if (filterQty >= singleProduct[0]) {
+                //     dispatch(
+                //         addToast({
+                //             text: getFormattedMessage(
+                //                 "pos.quantity.exceeds.quantity.available.in.stock.message"
+                //             ),
+                //             type: toastType.ERROR,
+                //         })
+                //     );
+                // } else {
                     setUpdateProducts((updateProducts) =>
                         updateProducts.map((item) =>
                             (item.code === code ||
@@ -133,13 +133,14 @@ const ProductSearchbar = (props) => {
                                 item.code === code.code
                                 // || item.name === code.name
                             ) &&
-                            singleProduct[0] > item.quantity
-                                ? { ...item, quantity: item.quantity + 1 }
-                                : item
+                            // singleProduct[0] > item.quantity
+                                // ?
+                                { ...item, quantity: item.quantity + 1 }
+                                // : i1tem
                         )
                     );
                     setKeyDown(false);
-                }
+                // }
             } else {
                 setUpdateProducts([...updateProducts, newProduct]);
                 setKeyDown(false);
@@ -167,7 +168,7 @@ const ProductSearchbar = (props) => {
                 (item) => item.attributes.code === string
             );
             if (codeSearch.length > 0) {
-                if (codeSearch[0].attributes?.stock?.quantity > 0) {
+                // if (codeSearch[0].attributes?.stock?.quantity > 0) {
                     if (codeSearch?.length === 1) {
                         scanProductBarCode = true;
                         const data = {
@@ -178,17 +179,17 @@ const ProductSearchbar = (props) => {
                         handleOnSelect(data);
                         setSearchString("");
                     }
-                } else {
-                    dispatch(
-                        addToast({
-                            text: getFormattedMessage(
-                                "pos.this.product.out.of.stock.message"
-                            ),
-                            type: toastType.ERROR,
-                        })
-                    );
-                    setSearchString("");
-                }
+                // } else {
+                //     dispatch(
+                //         addToast({
+                //             text: getFormattedMessage(
+                //                 "pos.this.product.out.of.stock.message"
+                //             ),
+                //             type: toastType.ERROR,
+                //         })
+                //     );
+                //     setSearchString("");
+                // }
             }
         }
     };

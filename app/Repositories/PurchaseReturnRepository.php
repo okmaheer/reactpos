@@ -94,14 +94,14 @@ class PurchaseReturnRepository extends BaseRepository
                         $q->where('supplier_id', $input['supplier_id'])->where('warehouse_id', $input['warehouse_id']);
                     })->exists();
                 if ($purchaseExist) {
-                    if ($product && $product->quantity >= $saleItem['quantity']) {
+                    // if ($product && $product->quantity >= $saleItem['quantity']) {
                         $totalQuantity = $product->quantity - $saleItem['quantity'];
                         $product->update([
                             'quantity' => $totalQuantity,
                         ]);
-                    } else {
-                        throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
-                    }
+                    // } else {
+                        // throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
+                    // }
                 } else {
                     throw new UnprocessableEntityHttpException('Purchase Does Not exist');
                 }
@@ -246,13 +246,13 @@ class PurchaseReturnRepository extends BaseRepository
                             })->exists();
                     if ($purchaseExist) {
                         if ($product) {
-                            if ($product->quantity >= $purchaseReturnItem['quantity']) {
+                            // if ($product->quantity >= $purchaseReturnItem['quantity']) {
                                 $product->update([
                                     'quantity' => $product->quantity - $purchaseReturnItem['quantity'],
                                 ]);
-                            } else {
-                                throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
-                            }
+                            // } else {
+                                // throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
+                            // }
                         }
                     } else {
                         throw new UnprocessableEntityHttpException('Purchase Does Not exist');
@@ -316,9 +316,9 @@ class PurchaseReturnRepository extends BaseRepository
                     }
                 } elseif ($oldItem->quantity < $purchaseReturnItem['quantity']) {
                     $totalQuantity = $product->quantity - ($purchaseReturnItem['quantity'] - $oldItem->quantity);
-                    if ($product->quantity < ($purchaseReturnItem['quantity'] - $oldItem->quantity)) {
-                        throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
-                    }
+                    // if ($product->quantity < ($purchaseReturnItem['quantity'] - $oldItem->quantity)) {
+                        // throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
+                    // }
                     $product->update([
                         'quantity' => $totalQuantity,
                     ]);
