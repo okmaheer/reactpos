@@ -221,7 +221,6 @@ const Login = () => {
                             alt="FBR Logo"
                             />
                         </a>
-    
                     </div>
 
                 </div>
