@@ -1,6 +1,6 @@
 const mix = require('laravel-mix');
 const webpack = require('webpack'); // Import webpack
-
+const { GenerateSW } = require('workbox-webpack-plugin'); // Import Workbox Plugin
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -12,6 +12,7 @@ const webpack = require('webpack'); // Import webpack
  |
  */
 
+
 mix.options({
     postCss: [
         require('autoprefixer'),
@@ -19,11 +20,12 @@ mix.options({
 });
 
 mix.setPublicPath('public');
+
 mix.webpackConfig({
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            '@': __dirname + 'resources', // Fixed path to include the leading '/'
+            '@': __dirname + '/resources', // Fixed path to include the leading '/'
         }
     },
     output: {
@@ -33,6 +35,11 @@ mix.webpackConfig({
         new webpack.DefinePlugin({
             'process.env.APP_URL': JSON.stringify(process.env.APP_URL), // Define the APP_URL
         }),
+        new GenerateSW({ // Configure Workbox
+            clientsClaim: true,
+            skipWaiting: true,
+            // Additional options can be specified here
+        }),
     ],
 }).react();
 
@@ -41,6 +48,7 @@ mix.js('resources/js/app.js', 'public/js');
 
 mix.js('resources/pos/src/index.js', 'public/js/app.js').version();
 mix.copyDirectory('resources/images', 'public/images');
+
 
 // Uncomment if you are using SASS
 // mix.sass([
