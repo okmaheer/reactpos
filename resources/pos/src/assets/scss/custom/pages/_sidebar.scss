@@ -1,6 +1,6 @@
-@import "../../components/variables";
-@import "../../base/mixin";
-@import '~react-pro-sidebar/dist/scss/styles';
+@use "../../components/variables";
+@use "../../base/mixin";
+@use '~react-pro-sidebar/dist/scss/styles';
 
 .pro-sidebar {
     @media (min-width: 992px) {

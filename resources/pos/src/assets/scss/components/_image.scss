@@ -1,7 +1,7 @@
-@import "variables";
-@import "../base/mixin/breakpoints";
-@import "../base/mixin/image";
-@import "../base/functions/get";
+@use "variables";
+@use "../base/mixin/breakpoints";
+@use "../base/mixin/image";
+@use "../base/functions/get";
 
 .image {
     display: inline-block;;

@@ -1,5 +1,5 @@
-@import "../../components/variables";
-@import "~react-datepicker/dist/react-datepicker.css";
+@use "../../components/variables";
+@use "~react-datepicker/dist/react-datepicker.css";
 
 .datepicker {
     &__custom-datepicker {

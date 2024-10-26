@@ -2,10 +2,10 @@
 $mode: default;
 
 // Initialize
-@import "init";
+@use "init";
 
 // Components
-@import "components/components";
+@use "components/components";
 
 // Layouts
-@import "layout/layout";
+@use "layout/layout";

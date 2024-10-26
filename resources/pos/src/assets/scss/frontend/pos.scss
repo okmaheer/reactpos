@@ -1,5 +1,5 @@
-@import "../components/variables";
-@import "resources/pos/src/assets/scss/frontend/layout";
+@use "../components/variables";
+@use "resources/pos/src/assets/scss/frontend/layout";
 
 .custom-card {
     background-color: $white;

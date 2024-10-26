@@ -1,13 +1,13 @@
 // Custom functions & mixins
-@import "base/functions";
-@import "base/mixin";
+@use "base/functions";
+@use "base/mixin";
 
 // Custom variables
-@import "components/variables";
+@use "components/variables";
 
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-// @import "~bootstrap/scss/variables-dark";
-// @import "~bootstrap/scss/maps";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/utilities";
+@use "~bootstrap/scss/functions";
+@use "~bootstrap/scss/variables";
+// @use "~bootstrap/scss/variables-dark";
+// @use "~bootstrap/scss/maps";
+@use "~bootstrap/scss/mixins";
+@use "~bootstrap/scss/utilities";

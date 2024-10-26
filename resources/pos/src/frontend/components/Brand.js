@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Swiper from 'react-id-swiper';
-import 'swiper/swiper.scss';
+import 'swiper/css';
 import { Nav, Button } from 'react-bootstrap-v5';
 import { connect } from 'react-redux';
 import { fetchAllBrands } from '../../store/action/brandsAction';

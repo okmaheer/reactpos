@@ -2,7 +2,7 @@
 $mode: default;
 
 // Initialize
-@import "init";
+@use "init";
 
 // Plugins
-@import "plugins/plugins";
+@use "plugins/plugins";

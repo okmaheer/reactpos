@@ -1,5 +1,5 @@
-@import "variables";
-@import "../base/functions/theme-color";
+@use "variables";
+@use "../base/functions/theme-color";
 
 .badge {
     &.badge-circle,

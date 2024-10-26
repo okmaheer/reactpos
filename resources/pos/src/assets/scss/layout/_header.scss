@@ -1,5 +1,5 @@
-@import "../components/variables";
-@import "../base/mixin/overlay";
+@use "../components/variables";
+@use "../base/mixin/overlay";
 
 .header {
     background-color: $body-bg;

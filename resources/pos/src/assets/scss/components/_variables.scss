@@ -1,6 +1,6 @@
-@import "helpers/fonts";
-@import "~bootstrap/scss/functions";
-@import "../base/functions/mode";
+@use "helpers/fonts";
+@use "~bootstrap/scss/functions";
+@use "../base/functions/mode";
 
 $primaryFont: "Poppins", Helvetica, sans-serif;
 

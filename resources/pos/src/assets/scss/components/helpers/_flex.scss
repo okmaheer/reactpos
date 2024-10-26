@@ -1,5 +1,5 @@
-@import "../../base/mixin/breakpoints";
-@import "../variables";
+@use "../../base/mixin/breakpoints";
+@use "../variables";
 
 @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {

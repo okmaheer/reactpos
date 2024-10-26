@@ -1,5 +1,5 @@
-@import "~react-toastify/scss/main";
-@import "../../components/variables";
+@use "~react-toastify/scss/main";
+@use "../../components/variables";
 
 .Toastify {
     z-index: 999999;

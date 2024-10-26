@@ -1,6 +1,6 @@
 //layouts
-@import "../layout/main";
-@import "../layout/aside/sidebar";
-@import "../layout/header";
-@import "../layout/widget";
-@import "pricing";
+@use "../layout/main";
+@use "../layout/aside/sidebar";
+@use "../layout/header";
+@use "../layout/widget";
+@use "pricing";
