@@ -332,7 +332,21 @@ const PaymentSlipModal = (props) => {
                 ) : (
                     ""
                 )}
-               {parseInt(settings.attributes?.show_note) === 1 &&  <h5 className="text-center font-label">
+                  <div className=" d-block">
+                 
+                        <Image
+                            src={
+                                `${process.env.APP_URL}/images/fbr-invoice.png`
+                            }
+                            className=""
+                            height={110}
+                            width={110}
+                        />
+                     <span className="d-block text-center mt-1">
+                     Verify this invoice throught FBR TaxAsaan MobileApp 
+                    </span>
+                </div>
+               {/* {parseInt(settings.attributes?.show_note) === 1 &&  <h5 className="text-center font-label">
                     {settings.attributes?.notes
                         ? settings.attributes?.notes
                         : getFormattedMessage("pos-thank.you-slip.invoice")}
@@ -354,7 +368,7 @@ const PaymentSlipModal = (props) => {
                         {paymentDetails &&
                             paymentDetails.attributes.reference_code}
                     </span>
-                </div>
+                </div> */}
             </Modal.Body>
             <Modal.Footer className="justify-content-center pt-2">
                 <button

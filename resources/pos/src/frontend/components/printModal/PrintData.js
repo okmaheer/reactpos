@@ -494,7 +494,21 @@ class PrintData extends React.PureComponent {
                                 : ""}
                         </h3>
                     )}
-                <div className="text-center d-block">
+                    <div className="d-block">    
+                      
+                       <Image
+                            src={
+                                `${process.env.APP_URL}/images/fbr-invoice.png`
+                            }
+                            className=""
+                            height={110}
+                            width={110}
+                        />
+                     <span className="d-block text-center mt-1">
+                        Verify this invoice throught FBR TaxAsaan MobileApp 
+                    </span>
+                </div>
+                {/* <div className="text-center d-block">
                     {paymentPrint.settings &&
                         parseInt(
                             paymentPrint.settings.attributes
@@ -518,7 +532,7 @@ class PrintData extends React.PureComponent {
                     >
                         {paymentPrint && paymentPrint.reference_code}
                     </span>
-                </div>
+                </div> */}
             </div>
         );
     }

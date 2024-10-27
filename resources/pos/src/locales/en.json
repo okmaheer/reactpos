@@ -584,6 +584,7 @@
     "pos-product.title": "PRODUCT",
     "pos-qty.title": "QTY",
     "pos-price.title": "PRICE",
+    "pos-tax.title": "TAX",
     "pos-sub-total.title": "SUB TOTAL",
     "pos-total-qty.title": "Total QTY",
     "pos-total.title": "Total",
